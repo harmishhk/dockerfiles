@@ -1,3 +1,6 @@
+require "yaml"
+sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../../sharing.config.yaml"), File::RDONLY).read)
+
 Vagrant.configure("2") do |config|
 
     # set up basic box image
@@ -14,4 +17,8 @@ Vagrant.configure("2") do |config|
 
     # provision docker
     config.vm.provision "docker"
+
+    if sharing_config
+        sharing_config.each { |key, value| value.each { |key_, value_| config.vm.synced_folder key_, "/vagrant/" + key + key_ } }
+    end
 end
