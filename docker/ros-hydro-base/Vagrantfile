@@ -1,0 +1,12 @@
+Vagrant.configure("2") do |config|
+
+    ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
+
+    config.vm.provider "docker" do |d|
+        d.force_host_vm = true
+        d.build_dir = "."
+        d.build_args = ["--tag=local:ros-hydro-base"]
+        d.vagrant_vagrantfile = "../../vagrant/ubuntu-1404/Vagrantfile"
+        d.has_ssh = true
+    end
+end

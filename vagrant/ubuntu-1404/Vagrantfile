@@ -1,0 +1,17 @@
+Vagrant.configure("2") do |config|
+
+    # set up basic box image
+    config.vm.box = "ubuntu/trusty64"
+
+    # set host name
+    config.vm.hostname = "vagrant"
+
+    # update machine configurations
+    config.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--memory", 4096]
+        v.customize ["modifyvm", :id, "--cpus", 4]
+    end
+
+    # provision docker
+    config.vm.provision "docker"
+end
