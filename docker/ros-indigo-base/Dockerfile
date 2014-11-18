@@ -13,7 +13,8 @@ RUN apt-get install -y \
     python-software-properties \
     software-properties-common \
     openssh-server \
-    wget
+    wget \
+    tmux
 
 # set root pasword
 #RUN echo 'root:root' | chpasswd

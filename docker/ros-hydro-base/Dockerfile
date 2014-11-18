@@ -14,6 +14,7 @@ RUN apt-get install -y \
     software-properties-common \
     openssh-server \
     wget \
+    tmux \
     sudo
 
 # set root pasword
