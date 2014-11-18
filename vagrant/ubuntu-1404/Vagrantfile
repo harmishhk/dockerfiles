@@ -19,6 +19,6 @@ Vagrant.configure("2") do |config|
     config.vm.provision "docker"
 
     if sharing_config
-        sharing_config.each { |key, value| value.each { |key_, value_| config.vm.synced_folder key_, "/vagrant/" + key + key_ } }
+        sharing_config.each { |key, value| value.each { |key_, value_| config.vm.synced_folder key_, "/synced/" + key + key_ } }
     end
 end
