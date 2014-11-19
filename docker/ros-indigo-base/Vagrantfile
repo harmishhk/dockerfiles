@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
         d.vagrant_vagrantfile = "../../vagrant/ubuntu-1404/Vagrantfile"
         d.has_ssh = true
 
-        if sharing_config
+        if sharing_config && sharing_config[config.vm.hostname]
             sharing_config[config.vm.hostname].each { |key, value| d.create_args += ["--volume=/synced/" + config.vm.hostname + key + ":" + value]}
         end
     end
