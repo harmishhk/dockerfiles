@@ -46,7 +46,7 @@ RUN \
     apt-get update
 
 # install ros-indigo base and initialize rosdep
-RUN apt-get install -y ros-indigo-ros-base
+RUN apt-get install -y ros-indigo-desktop-full
 RUN rosdep init
 
 # switch to 'vagrant' user and update rosdep
