@@ -47,7 +47,7 @@ RUN \
     wget --no-check-certificate wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | apt-key add - && \
     apt-get update
 
-# install ros-indigo base and initialize rosdep
+# install ros-hydro base and initialize rosdep
 RUN apt-get install -y ros-hydro-ros-base
 RUN rosdep init
 
@@ -59,6 +59,7 @@ RUN rosdep update
 # setup ros for each login shell
 RUN \
     echo "HOME=/home/vagrant" >> ~/.bashrc && \
+    echo "LC_ALL=C" >> ~/.bashrc && \
     echo "source /opt/ros/hydro/setup.bash" >> ~/.bashrc
 
 # and start the ssh server
