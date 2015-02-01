@@ -1,4 +1,4 @@
-# ubuntu server 14.04 64bit
+# ubuntu server 14.04 64bit with X-server installed
 require "yaml"
 sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../../sharing.config.yaml"), File::RDONLY).read)
 
@@ -8,14 +8,20 @@ Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/trusty64"
 
     # set host name
-    config.vm.hostname = "vagrant"
-    config.vm.network "private_network", ip: "192.168.50.4"
+    config.vm.hostname = "vagrant-x"
+    config.vm.network "private_network", ip: "192.168.50.5"
 
     # update machine configurations
     config.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--memory", 4096]
         v.customize ["modifyvm", :id, "--cpus", 4]
     end
+
+    # enable X11 forwarding
+    config.ssh.forward_x11 = true
+
+    # install x11 for gui appliatins
+    config.vm.provision "shell", inline: "apt-get install -y xorg"
 
     # provision docker
     config.vm.provision "docker"
