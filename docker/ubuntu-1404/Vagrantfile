@@ -1,3 +1,4 @@
+# docker image of ubuntu server 14.04, running inside ubuntu server 14.04 vagrant machine
 require "yaml"
 sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../../sharing.config.yaml"), File::RDONLY).read)
 
