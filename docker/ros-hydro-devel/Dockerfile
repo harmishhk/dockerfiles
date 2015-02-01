@@ -51,6 +51,11 @@ RUN \
 RUN apt-get install -y ros-hydro-desktop-full
 RUN rosdep init
 
+# install extra packages required by navigation
+RUN apt-get install -y \
+    ros-hydro-cmake-modules \
+    ros-hydro-sbpl
+
 # switch to 'vagrant' user and update rosdep
 USER vagrant
 ENV HOME /home/vagrant
