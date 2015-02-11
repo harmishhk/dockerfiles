@@ -14,8 +14,8 @@ Vagrant.configure("2") do |config|
 
         # update machine configurations
         machine.vm.provider "virtualbox" do |v|
-            v.customize ["modifyvm", :id, "--memory", 4096]
-            v.customize ["modifyvm", :id, "--cpus", 4]
+            v.customize ["modifyvm", :id, "--memory", 12288]
+            v.customize ["modifyvm", :id, "--cpus", 8]
         end
 
         # provision docker
