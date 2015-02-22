@@ -16,13 +16,15 @@ Vagrant.configure("2") do |config|
         machine.vm.provider "virtualbox" do |v|
             v.customize ["modifyvm", :id, "--memory", 12288]
             v.customize ["modifyvm", :id, "--cpus", 8]
+            v.customize ["modifyvm", :id, "--vram", 128]
+            v.customize ["modifyvm", :id, "--accelerate3d", "on"]
         end
 
         # enable X11 forwarding
         machine.ssh.forward_x11 = true
 
         # install x11 for gui appliatins
-        machine.vm.provision "shell", inline: "apt-get install -y xorg"
+        machine.vm.provision "shell", inline: "apt-get install -y xauth"
 
         # provision docker
         machine.vm.provision "docker"
