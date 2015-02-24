@@ -1,7 +1,5 @@
 FROM harmishhk/nvidia
 
-MAINTAINER harmish khambhaita <harmish@laas.fr>
-
 # install common dependencies
 RUN apt-get update
 RUN apt-get install -y wget supervisor

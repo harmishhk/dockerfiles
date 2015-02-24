@@ -1,7 +1,5 @@
 FROM harmishhk/ros:indigo-desktop
 
-MAINTAINER harmish khambhaita <harmish@laas.fr>
-
 # install necessities
 RUN apt-get update
 RUN apt-get install -y wget
