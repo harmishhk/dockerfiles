@@ -1,4 +1,4 @@
-FROM    ubuntu:12.04
+FROM ubuntu:12.04
 
 # install necessities
 RUN apt-get update

@@ -5,8 +5,8 @@ RUN apt-get update
 RUN apt-get install -y wget
 
 # setup source-list and keys
-RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list' && \
-    wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | apt-key add - && \
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
+    apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116 && \
     apt-get update
 
 # install ros-indigo base and initialize rosdep
