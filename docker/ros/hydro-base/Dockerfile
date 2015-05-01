@@ -10,7 +10,7 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt
     apt-get update
 
 # install ros-hydro base and initialize rosdep
-RUN apt-get install -y ros-hydro-ros-base
+RUN apt-get install -y ros-hydro-ros-base python-rosinstall python-catkin-tools
 RUN rosdep init
 
 # update rosdep

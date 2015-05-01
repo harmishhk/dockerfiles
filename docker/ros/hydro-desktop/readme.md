@@ -2,4 +2,4 @@
 ```docker build -t harmishhk/ros:hydro-desktop .```
 
 ### run
-```docker run -i -t harmishhk/ros:hydro-desktop /bin/bash```
+```docker run -it harmishhk/ros:hydro-desktop /bin/bash```
