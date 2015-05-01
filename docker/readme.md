@@ -1,22 +1,5 @@
-### local registry
-```
-docker run -d \
-     -e STANDALONE=true \
-     -e INDEX_ENDPOINT=https://docker.example.com \
-     -e SETTINGS_FLAVOR=local \
-     -e STORAGE_PATH=/registry \
-     -e SEARCH_BACKEND=sqlalchemy \
-     -p 5000:5000 \
-     -v /home/hkhambha/docker-registry:/registry \
-     --name registry \
-     registry
-```
+## some help
 
-### ui for inspecting local registry
-```
-docker run -d \
-    -p 8010:8080 \
-    -e REG1=http://registry:5000/v1/ \
-    --link registry:registry \
-    atcol/docker-registry-ui
-```
+* docker engine options can be specified in `/etc/default/docker` by setting `DOCKER_OPTS` variable.
+* to change docker root directory (which in turn changes location of images) use `--graph` argument, e.g. `DOCKER_OPTS="--graph=/disired/location/docker"`.
+* when using remote private registry, you need to add `--insecure-registry` to docker engine arguments, e.g. `DOCKER_OPTS="--insecure-registry server.address:5000"`.

@@ -1,10 +1,12 @@
 boxes
 ======
-a small repository to create a local development environment in [Docker](https://www.docker.com/) containers or [Vagrant](https://www.vagrantup.com/) virtual machines.
+a collection of development environments in [Docker](https://www.docker.com/) containers or inside [Vagrant](https://www.vagrantup.com/) virtual machines.
 
 ## dependencies
-please make sure you have the following dependencies installed:
+to use only docker containers:
 - [Docker](https://www.docker.com/)
+
+when hosting docker images inside a vagrant machine or simply using vagrant vms:
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
@@ -12,11 +14,5 @@ please make sure you have the following dependencies installed:
 please check ```readme.md``` inside particular docker folder
 
 ## usage vagrant
-after checking out boxes go to any directory inside vagrant (e.g. [docker/ros-indigo-base](https://github.com/harmishhk/boxes/tree/master/docker/ros-indigo-base)) and simply run `vagrant up`.
-
-## folder sharing
-folder sharing for vagrant can be configured in the [sharing.config.yaml](https://github.com/harmishhk/boxes/blob/master/sharing.config.yaml) file
-
-## known issues
-issue: running `vagrant up` for the first time for any of the docker-vagrant images fails (permission issues)
-solution: run `vagrant up` again
+- go to any directory inside vagrant (e.g. [ubuntu-1404](https://github.com/harmishhk/boxes/tree/master/vagrant/ubuntu-1404)) and simply run `vagrant up`.
+- folder sharing for vagrant can be configured in the [sharing.config.yaml](https://github.com/harmishhk/boxes/blob/master/vagrant/sharing.config.yaml) file.
