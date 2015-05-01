@@ -1,26 +1,28 @@
 # ubuntu server 14.04 64bit
 require "yaml"
-sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../../sharing.config.yaml"), File::RDONLY).read)
+sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../sharing.config.yaml"), File::RDONLY).read)
 
 Vagrant.configure("2") do |config|
 
-    # set up basic box image
-    config.vm.box = "ubuntu/trusty64"
+    config.vm.define :ubuntu_1404 do |machine|
+        # set up basic box image
+        machine.vm.box = "ubuntu/trusty64"
 
-    # set host name
-    config.vm.hostname = "vagrant"
-    config.vm.network "private_network", ip: "192.168.50.4"
+        # set host name
+        machine.vm.hostname = "vagrant"
+        machine.vm.network "private_network", ip: "192.168.50.4"
 
-    # update machine configurations
-    config.vm.provider "virtualbox" do |v|
-        v.customize ["modifyvm", :id, "--memory", 4096]
-        v.customize ["modifyvm", :id, "--cpus", 4]
-    end
+        # update machine configurations
+        machine.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", 12288]
+            v.customize ["modifyvm", :id, "--cpus", 8]
+        end
 
-    # provision docker
-    config.vm.provision "docker"
+        # provision docker
+        machine.vm.provision "docker"
 
-    if sharing_config
-        sharing_config.each { |key, value| value.each { |key_, value_| config.vm.synced_folder key_, "/synced/" + key + key_ } }
+        if sharing_config
+            sharing_config.each { |key, value| value.each { |key_, value_| machine.vm.synced_folder key_, "/synced/" + key + key_ } }
+        end
     end
 end

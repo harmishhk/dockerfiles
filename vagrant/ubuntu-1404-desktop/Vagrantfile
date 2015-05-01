@@ -1,30 +1,25 @@
-# ubuntu server 12.04 64bit with X-server installed
+# base ubuntu desktop 14.04 64bit (needs locally stored vm image)
 require "yaml"
 sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../sharing.config.yaml"), File::RDONLY).read)
 
 Vagrant.configure("2") do |config|
 
-    config.vm.define :ubuntu_1204_x do |machine|
-        # set up basic box image
-        machine.vm.box = "ubuntu/precise64"
+    config.vm.define :ubuntu_1404_desktop do |machine|
+        # set up basic box image (from local images)
+        machine.vm.box = "ubuntu-1404-desktop"
 
         # set host name
-        machine.vm.hostname = "vagrant-x"
-        machine.vm.network "private_network", ip: "192.168.50.7"
+        machine.vm.hostname = "vagrant-desktop"
+        machine.vm.network "private_network", ip: "192.168.50.6"
 
         # update machine configurations
         machine.vm.provider "virtualbox" do |v|
             v.customize ["modifyvm", :id, "--memory", 12288]
             v.customize ["modifyvm", :id, "--cpus", 8]
-            v.customize ["modifyvm", :id, "--vram", 128]
-            v.customize ["modifyvm", :id, "--accelerate3d", "on"]
         end
 
         # enable X11 forwarding
         machine.ssh.forward_x11 = true
-
-        # install x11 for gui appliatins
-        machine.vm.provision "shell", inline: "apt-get install -y xauth"
 
         # provision docker
         machine.vm.provision "docker"

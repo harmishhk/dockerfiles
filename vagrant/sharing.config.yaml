@@ -9,3 +9,5 @@
 # e.g.
 #ros-indigo-base:
 #    /home/user/ros/indigo: /home/vagrant/ros/indigo
+#ros-hydro-base:
+#    /home/user/ros/hydro: /home/vagrant/ros/hydro

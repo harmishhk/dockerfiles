@@ -1,32 +1,36 @@
 # ubuntu server 14.04 64bit with X-server installed
 require "yaml"
-sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../../sharing.config.yaml"), File::RDONLY).read)
+sharing_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "../sharing.config.yaml"), File::RDONLY).read)
 
 Vagrant.configure("2") do |config|
 
-    # set up basic box image
-    config.vm.box = "ubuntu/trusty64"
+    config.vm.define :ubuntu_1404_x do |machine|
+        # set up basic box image
+        machine.vm.box = "ubuntu/trusty64"
 
-    # set host name
-    config.vm.hostname = "vagrant-x"
-    config.vm.network "private_network", ip: "192.168.50.5"
+        # set host name
+        machine.vm.hostname = "vagrant-x"
+        machine.vm.network "private_network", ip: "192.168.50.5"
 
-    # update machine configurations
-    config.vm.provider "virtualbox" do |v|
-        v.customize ["modifyvm", :id, "--memory", 4096]
-        v.customize ["modifyvm", :id, "--cpus", 4]
-    end
+        # update machine configurations
+        machine.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", 12288]
+            v.customize ["modifyvm", :id, "--cpus", 8]
+            v.customize ["modifyvm", :id, "--vram", 128]
+            v.customize ["modifyvm", :id, "--accelerate3d", "on"]
+        end
 
-    # enable X11 forwarding
-    config.ssh.forward_x11 = true
+        # enable X11 forwarding
+        machine.ssh.forward_x11 = true
 
-    # install x11 for gui appliatins
-    config.vm.provision "shell", inline: "apt-get install -y xorg"
+        # install x11 for gui appliatins
+        machine.vm.provision "shell", inline: "apt-get install -y xauth"
 
-    # provision docker
-    config.vm.provision "docker"
+        # provision docker
+        machine.vm.provision "docker"
 
-    if sharing_config
-        sharing_config.each { |key, value| value.each { |key_, value_| config.vm.synced_folder key_, "/synced/" + key + key_ } }
+        if sharing_config
+            sharing_config.each { |key, value| value.each { |key_, value_| machine.vm.synced_folder key_, "/synced/" + key + key_ } }
+        end
     end
 end
