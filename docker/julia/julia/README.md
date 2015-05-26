@@ -1,7 +1,6 @@
-## julia withe some useful packages
+# julia
 
-### build
-```docker build -t harmishhk/julia:julia .```
+[ubuntu 14.04](http://www.ubuntu.com/) + [julia](http://julialang.org/) + some useful julia packages
 
-### run
-```docker run -it --rm harmishhk/julia:julia```
+### usage
+```docker run -it --rm harmishhk/julia```
