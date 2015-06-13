@@ -1,10 +1,13 @@
-FROM harmishhk/gazebo:gazebo
+FROM harmishhk/ros:jade-desktop-full
 
 # install gzweb dependencies
 RUN apt-get update
 RUN apt-get install -y libjansson-dev nodejs npm libboost-dev imagemagick libtinyxml-dev mercurial cmake build-essential supervisor
 
-# fix for node
+# a fix for problem in gazebo_ros package, see https://github.com/ros-simulation/gazebo_ros_pkgs/issues/323
+RUN apt-get install -y libgazebo5-dev
+
+# another fix for node
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # install gzweb by cloning from repository
