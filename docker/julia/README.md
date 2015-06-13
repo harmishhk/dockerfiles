@@ -4,3 +4,6 @@
 
 ### usage
 ```docker run -it --rm harmishhk/julia```
+
+### linked repositories
+[julia](https://registry.hub.docker.com/_/julia/)
