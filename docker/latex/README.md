@@ -8,4 +8,4 @@
 
 ### usage
 
-```docker run -it -v /tex-source:/source harmishhk/latex```
+```docker run --rm -v $(pwd):/latex harmishhk/latex latexmk --pdf source.tex```
