@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM scratch
 
 # install nvidia driver
 RUN apt-get update
