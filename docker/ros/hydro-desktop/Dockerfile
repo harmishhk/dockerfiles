@@ -15,7 +15,7 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt
 
 # install ros-hydro base and initialize rosdep
 RUN apt-get install -y zsh \
-    ros-hydro-ros-desktop \
+    ros-hydro-desktop \
     python-rosinstall \
     python-catkin-tools
 
