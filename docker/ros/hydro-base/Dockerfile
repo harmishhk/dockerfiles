@@ -14,11 +14,21 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt
     apt-get update
 
 # install ros-hydro base and initialize rosdep
-RUN apt-get install -y ros-hydro-ros-base python-rosinstall python-catkin-tools
-RUN rosdep init
+RUN apt-get install -y zsh \
+    ros-hydro-ros-base \
+    python-rosinstall \
+    python-catkin-tools
 
-# update rosdep
-RUN rosdep update
+# setup rosdep
+RUN rosdep init && \
+    rosdep update
 
-# setup ros for each login shell
-RUN sh -c 'echo "source /opt/ros/hydro/setup.bash" >> ~/.bashrc'
+# clean up
+RUN rm -rf /var/lib/apt/lists/*
+
+# setup ros
+ENV ROS_DISTRO hydro
+RUN sh -c 'echo "source /opt/ros/hydro/setup.zsh" >> ~/.zshrc'
+COPY ./entrypoint.sh entrypoint.sh
+ENTRYPOINT ["/usr/bin/zsh", "entrypoint.sh"]
+CMD ["/usr/bin/zsh"]
