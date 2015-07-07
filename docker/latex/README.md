@@ -4,7 +4,7 @@
 
 ### tags
 
-- latest (```harmishhk/latex:latext```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/latex/Dockerfile))
+- latest (```harmishhk/latex:latest```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/latex/Dockerfile))
 
 ### usage
 
