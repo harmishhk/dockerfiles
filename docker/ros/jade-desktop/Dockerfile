@@ -11,7 +11,7 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"
 
 # install ros-jade-desktop and initialize rosdep
 RUN apt-get install -y zsh \
-    ros-jade-ros-desktop \
+    ros-jade-desktop \
     python-rosinstall \
     python-catkin-tools
 
