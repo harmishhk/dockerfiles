@@ -21,5 +21,5 @@
 
 ```docker run -it harmishhk/ros```
 
-- share local ROS workspace with ```-v``` option, e.g  ```-v $HOME/ros:/root/ros```
+- share local ROS workspace with ```-v``` option, e.g.  ```-v $HOME/ros:/root/ros```
 - easiest way to network multiple containers is using host networking, with ```--net=host``` option
