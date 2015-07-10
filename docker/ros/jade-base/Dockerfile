@@ -23,8 +23,9 @@ RUN rosdep init && \
 RUN rm -rf /var/lib/apt/lists/*
 
 # setup ros
+ENV SHELL /usr/bin/zsh
 ENV ROS_DISTRO jade
 RUN sh -c 'echo "source /opt/ros/jade/setup.zsh" >> ~/.zshrc'
-COPY ./entrypoint.sh entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "entrypoint.sh"]
+COPY ./entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
 CMD ["/usr/bin/zsh"]
