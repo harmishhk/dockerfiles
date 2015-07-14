@@ -9,3 +9,7 @@
 ### usage
 
 ```docker run --rm -v $(pwd):/latex harmishhk/latex latexmk --pdf source.tex```
+
+### repository links
+
+- [ubuntu](https://registry.hub.docker.com/_/ubuntu/)
