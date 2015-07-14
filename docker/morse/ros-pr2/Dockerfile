@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-desktop
+FROM harmishhk/ros:indigo-navigation
 
 # install dependencies
 RUN apt-get update
@@ -17,6 +17,15 @@ ENV PATH $PATH:$HOME/morse/install/1.3/bin
 RUN apt-get install -y python3-setuptools
 RUN easy_install3 pip
 RUN pip3 install rospkg catkin-tools
+
+# install pr2 and naviagation packages
+RUN apt-get update
+RUN apt-get install -y \
+    ros-indigo-pr2-common \
+    ros-indigo-pr2-controllers
+RUN mkdir -p /root/catkin_ws/src && \
+    git clone -b 1.3 https://github.com/harmishhk/morse_ros.git /root/catkin_ws/src/morse_ros && \
+    zsh -c "source /opt/ros/indigo/setup.zsh && catkin_make -C /root/catkin_ws install"
 
 # set-up headless mode
 ENV HEADLESS true
