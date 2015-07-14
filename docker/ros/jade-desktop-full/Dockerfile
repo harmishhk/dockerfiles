@@ -15,6 +15,9 @@ RUN apt-get install -y zsh \
     python-rosinstall \
     python-catkin-tools
 
+# a fix for problem in gazebo_ros package, see https://github.com/ros-simulation/gazebo_ros_pkgs/issues/323
+RUN apt-get install -y libgazebo5-dev
+
 # setup rosdep
 RUN rosdep init && \
     rosdep update
