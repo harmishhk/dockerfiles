@@ -6,7 +6,7 @@
 
 - robotpkg (```harmishhk/robotpkg:robotpkg```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg/Dockerfile))
 - optitrack (```harmishhk/robotpkg:optitrack```), adds ```optitrack-genom3``` package ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/optitrack/Dockerfile))
-- robotpkg (```harmishhk/robotpkg:robotpkg-wo-ros```), without [ros-indigo-base](https://registry.hub.docker.com/u/harmishhk/ros/) installation ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg-wo-ros/Dockerfile))
+- robotpkg-wo-ros (```harmishhk/robotpkg:robotpkg-wo-ros```), without [ros-indigo-base](https://registry.hub.docker.com/u/harmishhk/ros/) installation ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg-wo-ros/Dockerfile))
 
 ### usage
 ```docker run -it --rm harmishhk/robotpkg:optitrack```

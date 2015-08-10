@@ -1,6 +1,6 @@
 # morse
 
-[ubuntu 14.04](http://www.ubuntu.com/) + [morse](https://www.openrobots.org/wiki/morse) + simulator (v 1.3) + [ROS](http://www.ros.org/)
+[ubuntu 14.04](http://www.ubuntu.com/) + [morse](https://www.openrobots.org/wiki/morse) simulator (v 1.3) + [ROS](http://www.ros.org/)
 
 ### tags
 
