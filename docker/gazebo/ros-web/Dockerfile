@@ -20,8 +20,5 @@ RUN cd ~ && \
 RUN bash -c 'source /usr/share/gazebo/setup.sh'
 RUN bash -c '~/gzweb/deploy.sh -m'
 
-# install additional tools
-RUN apt-get install -y vim tmux git
-
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord"]

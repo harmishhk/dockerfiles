@@ -11,11 +11,5 @@ RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 RUN apt-get update
 RUN apt-get install -y gazebo5 libgazebo5-dev
 
-# fix qt related x server errors
-RUN echo "export QT_X11_NO_MITSHM=1" >> ~/.bashrc
-
-# install additional tools
-RUN apt-get install -y vim tmux git
-
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord"]
