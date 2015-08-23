@@ -1,26 +1,29 @@
 FROM harmishhk/robotpkg:robotpkg
 
-# install system packages for optitrack
-RUN apt-get update
-RUN apt-get install -y bzip2 libbz2-dev zlib1g-dev libssl-dev libncurses-dev \
-    pax tar autoconf automake libtool pkg-config flex tcl-dev bison tk-dev
+RUN apt-get update && \
+    # install system packages for optitrack
+    apt-get install -y bzip2 libbz2-dev zlib1g-dev libssl-dev libncurses-dev \
+    pax tar autoconf automake libtool pkg-config flex tcl-dev bison tk-dev && \
 
-# install ros packages for optitrack
-run apt-get install -y ros-indigo-tf
+    # install ros packages for optitrack
+    apt-get install -y ros-indigo-tf && \
 
-# install genom packages for optitrack
-RUN cd $HOME/openrobots/src/robotpkg/net/genomix && make update
-RUN echo "PKG_OPTIONS.optitrack-genom3+= ros-client-ros ros-client-c ros-server" >> $HOME/openrobots/install/etc/robotpkg.conf
-RUN cd $HOME/openrobots/src/robotpkg/wip/optitrack-genom3 && make update
-RUN cd $HOME/openrobots/src/robotpkg/wip/tcl-genomix && make update
+    # install genom packages for optitrack
+    cd openrobots/src/robotpkg/net/genomix && make update && \
+    echo "PKG_OPTIONS.optitrack-genom3+= ros-client-ros ros-client-c ros-server" >> /openrobots/install/etc/robotpkg.conf && \
+    cd /openrobots/src/robotpkg/wip/optitrack-genom3 && make update && \
+    cd /openrobots/src/robotpkg/wip/tcl-genomix && make update && \
 
-# download and build optitrack_person
-RUN mkdir -p $HOME/catkin_ws/src && \
-    git clone https://github.com/harmishhk/optitrack_person $HOME/catkin_ws/src/optitrack_person && \
-    git clone https://github.com/harmishhk/hanp_msgs $HOME/catkin_ws/src/hanp_msgs && \
-    zsh -c "source /opt/ros/indigo/setup.zsh && catkin_make -C $HOME/catkin_ws install"
+    # download and build optitrack_person
+    mkdir -p /ros_ws/src && \
+    git clone https://github.com/harmishhk/optitrack_person /ros_ws/src/optitrack_person && \
+    rm -rf /ros_ws/src/optitrack_person/.git && \
+    git clone https://github.com/harmishhk/hanp_msgs /ros_ws/src/hanp_msgs && \
+    rm -rf /ros_ws/src/hanp_msgs/.git && \
+    /bin/bash -c "source /opt/ros/indigo/setup.bash && catkin_make -C /ros_ws install" && \
+    rm -rf /ros_ws/build  /ros_ws/devel
 
 # setup entrypoint
 COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
-CMD ["/usr/bin/zsh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+CMD ["/bin/bash"]
