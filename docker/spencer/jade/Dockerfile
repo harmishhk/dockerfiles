@@ -1,8 +1,8 @@
-FROM harmishhk/ros:jade-desktop
+FROM harmishhk/ros:jade-robot
 
 # install extra packages required by spencer
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
     libmrpt-dev \
     mrpt-apps \
     freeglut3-dev \
@@ -12,4 +12,7 @@ RUN apt-get install -y \
     ros-jade-joy \
     ros-jade-camera-info-manager \
     ros-jade-driver-base \
-    ros-jade-polled-camera
+    ros-jade-polled-camera && \
+
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

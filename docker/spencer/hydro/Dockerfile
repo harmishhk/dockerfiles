@@ -1,8 +1,8 @@
-FROM harmishhk/ros:hydro-desktop
+FROM harmishhk/ros:hydro-robot
 
-# install extra packages required by navigation
-RUN apt-get update
-RUN apt-get install -y \
+# install extra packages required by spencer
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
     libmrpt-dev \
     mrpt-apps \
     freeglut3-dev \
@@ -12,4 +12,7 @@ RUN apt-get install -y \
     ros-hydro-joy \
     ros-hydro-camera-info-manager \
     ros-hydro-driver-base \
-    ros-hydro-polled-camera
+    ros-hydro-polled-camera && \
+
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
