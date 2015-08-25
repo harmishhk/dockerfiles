@@ -1,34 +1,9 @@
-FROM    ubuntu:14.04
+FROM harmishhk/ros:jade-navigation
 
-# setup environment
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
+# install ros-jade-desktop-full
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
+    ros-jade-desktop-full && \
 
-# setup source-list and keys
-RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
-    apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116 && \
-    apt-get update --fix-missing
-
-# install ros-jade-desktop and initialize rosdep
-RUN apt-get install -y zsh \
-    ros-jade-desktop-full \
-    python-rosinstall \
-    python-catkin-tools
-
-# a fix for problem in gazebo_ros package, see https://github.com/ros-simulation/gazebo_ros_pkgs/issues/323
-RUN apt-get install -y libgazebo5-dev
-
-# setup rosdep
-RUN rosdep init && \
-    rosdep update
-
-# clean up
-RUN rm -rf /var/lib/apt/lists/*
-
-# setup ros
-ENV SHELL /usr/bin/zsh
-ENV ROS_DISTRO jade
-RUN sh -c 'echo "source /opt/ros/jade/setup.zsh" >> ~/.zshrc'
-COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
-CMD ["/usr/bin/zsh"]
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

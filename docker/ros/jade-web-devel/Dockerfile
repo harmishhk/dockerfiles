@@ -1,19 +1,16 @@
-FROM harmishhk/ros:jade-desktop-full
+FROM harmishhk/ros:jade-base
 
-# install rosbridge server and dependencies
-RUN apt-get update
-RUN apt-get install -y \
+# install rosbridge server and ros-dependencies
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
     ros-jade-rosbridge-server \
     ros-jade-speech-recognition-msgs \
     ros-jade-interactive-marker-proxy \
     ros-jade-moveit-msgs \
     ros-jade-tf2-web-republisher \
-    ros-jade-move-base-msgs
+    ros-jade-move-base-msgs && \
 
-# install robotwebtools dependencies
-RUN apt-get update && \
-    apt-get install -y \
-    zsh \
+    # install other dependencies
     git \
     pkg-config \
     libcairo2-dev \
@@ -21,11 +18,13 @@ RUN apt-get update && \
     nodejs-legacy \
     npm && \
     npm install -g grunt-cli && \
-    rm -rf ~/.npm ~/tmp
+
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.npm
 
 # setup rosbridge to launch at start
-COPY ./build_rosweb.sh /root/build_rosweb.sh
-COPY ./rosbridge.launch /root/rosbridge.launch
+COPY ./build_rosweb.sh /build_rosweb.sh
+COPY ./rosbridge.launch /rosbridge.launch
 COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
-CMD ["roslaunch", "/root/rosbridge.launch"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+CMD ["roslaunch", "/rosbridge.launch"]

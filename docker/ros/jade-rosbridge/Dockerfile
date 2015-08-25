@@ -2,10 +2,10 @@ FROM harmishhk/ros:jade-navigation
 
 # install rosbridge
 RUN apt-get update && \
-    apt-get install -y ros-jade-rosbridge-server
+    apt-get install --no-install-recommends -y ros-jade-rosbridge-server && \
 
-# clean up
-RUN rm -rf /var/lib/apt/lists/*
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# setup new entrypoint and cmd
-COPY ./entrypoint.sh /entrypoint.sh
+# setup new cmd to launch rosbridge
+CMD ["roslaunch" "rosbridge_server" "rosbridge_websocket.launch"]

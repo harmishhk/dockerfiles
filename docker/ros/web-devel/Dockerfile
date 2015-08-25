@@ -2,8 +2,7 @@ FROM ubuntu:14.04
 
 # install dependencies
 RUN apt-get update && \
-    apt-get install -y \
-    zsh \
+    apt-get install --no-install-recommends -y \
     git \
     pkg-config \
     libcairo2-dev \
@@ -11,9 +10,11 @@ RUN apt-get update && \
     nodejs-legacy \
     npm && \
     npm install -g grunt-cli && \
-    rm -rf ~/.npm ~/tmp
 
-COPY ./build_rosweb.sh /root/build_rosweb.sh
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.npm
+
+COPY ./build_rosweb.sh /build_rosweb.sh
 COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
-CMD ["/usr/bin/zsh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+CMD ["/bin/bash"]

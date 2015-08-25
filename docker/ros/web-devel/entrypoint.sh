@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 # return if cannot execute
 set -e
@@ -7,7 +7,7 @@ set -e
 if [[ $1 == "build" ]]
 then
     shift
-    source /root/build_rosweb.sh
+    source /build_rosweb.sh
 fi
 
 # executre given command

@@ -1,9 +1,9 @@
-FROM harmishhk/ros:hydro-navigation
+FROM harmishhk/ros:hydro-base
 
-# install ros-hydro-desktop-full
+# install ros-hydro-robot
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
-    ros-hydro-desktop-full && \
+    ros-hydro-robot && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
