@@ -2,7 +2,7 @@ FROM harmishhk/ros:indigo-robot
 
 # install extra packages required by spencer
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     libmrpt-dev \
     mrpt-apps \
     freeglut3-dev \

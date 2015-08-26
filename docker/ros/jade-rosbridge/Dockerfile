@@ -2,7 +2,7 @@ FROM harmishhk/ros:jade-navigation
 
 # install rosbridge
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y ros-jade-rosbridge-server && \
+    apt-get install -y ros-jade-rosbridge-server && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 # install dependencies
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     git \
     pkg-config \
     libcairo2-dev \

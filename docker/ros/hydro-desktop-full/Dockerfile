@@ -2,7 +2,7 @@ FROM harmishhk/ros:hydro-navigation
 
 # install ros-hydro-desktop-full
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-hydro-desktop-full && \
 
     # clean-up

@@ -2,7 +2,7 @@ FROM harmishhk/ros:indigo-navigation
 
 # install ros-indigo-desktop-full
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-indigo-desktop-full && \
 
     # clean-up

@@ -2,7 +2,7 @@ FROM harmishhk/ros:jade-robot
 
 # install ros-jade-navigation
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-jade-navigation && \
 
     # clean-up

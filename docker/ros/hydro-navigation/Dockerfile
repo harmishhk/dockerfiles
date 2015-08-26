@@ -2,7 +2,7 @@ FROM harmishhk/ros:hydro-robot
 
 # install ros-hydro-navigation
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-hydro-navigation && \
 
     # clean-up

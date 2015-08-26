@@ -10,7 +10,7 @@ RUN locale-gen en_US.UTF-8 && \
     apt-get update --fix-missing && \
 
     # install ros-jade-base
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-jade-ros-base \
     python-catkin-tools && \
 

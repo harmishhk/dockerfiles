@@ -2,7 +2,7 @@ FROM harmishhk/ros:jade-base
 
 # install rosbridge server and ros-dependencies
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-jade-rosbridge-server \
     ros-jade-speech-recognition-msgs \
     ros-jade-interactive-marker-proxy \

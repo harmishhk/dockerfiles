@@ -10,7 +10,7 @@ RUN locale-gen en_US.UTF-8 && \
     apt-get update --fix-missing && \
 
     # install ros-indigo-base
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-indigo-ros-base \
     python-catkin-tools && \
 

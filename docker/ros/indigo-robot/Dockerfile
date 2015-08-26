@@ -2,7 +2,7 @@ FROM harmishhk/ros:indigo-base
 
 # install ros-indigo-robot
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
     ros-indigo-robot && \
 
     # clean-up
