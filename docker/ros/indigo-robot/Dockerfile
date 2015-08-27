@@ -1,9 +1,9 @@
-FROM harmishhk/ros:hydro-robot
+FROM harmishhk/ros:indigo-base
 
-# install ros-hydro-navigation
+# install ros-indigo-robot
 RUN apt-get update && \
     apt-get install -y \
-    ros-hydro-navigation && \
+    ros-indigo-robot && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

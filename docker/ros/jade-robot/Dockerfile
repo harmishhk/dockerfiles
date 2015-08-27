@@ -1,9 +1,9 @@
-FROM harmishhk/ros:hydro-robot
+FROM harmishhk/ros:jade-base
 
-# install ros-hydro-navigation
+# install ros-jade-robot
 RUN apt-get update && \
     apt-get install -y \
-    ros-hydro-navigation && \
+    ros-jade-robot && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

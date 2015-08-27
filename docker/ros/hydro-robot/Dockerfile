@@ -1,9 +1,9 @@
-FROM harmishhk/ros:hydro-robot
+FROM harmishhk/ros:hydro-base
 
-# install ros-hydro-navigation
+# install ros-hydro-robot
 RUN apt-get update && \
     apt-get install -y \
-    ros-hydro-navigation && \
+    ros-hydro-robot && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

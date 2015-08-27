@@ -1,31 +1,31 @@
 FROM ubuntu:14.04
 
 # setup environment
-RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
+RUN locale-gen en_US.UTF-8 && \
 
-# setup source-list and keys
-RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
+    # setup source-list and keys
+    sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
     apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116 && \
-    apt-get update
+    apt-get update --fix-missing && \
 
-# install ros-indigo base
-RUN apt-get install -y zsh \
+    # install ros-indigo-base
+    apt-get install -y \
     ros-indigo-ros-base \
-    python-rosinstall \
-    python-catkin-tools
+    python-catkin-tools && \
 
-# setup rosdep
-RUN rosdep init && \
-    rosdep update
+    # setup rosdep
+    rosdep init && \
+    rosdep update && \
 
-# clean up
-RUN rm -rf /var/lib/apt/lists/*
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 
-# setup ros
-ENV SHELL /usr/bin/zsh
+    # set defaults
+    sh -c 'echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc'
+
+# setup environment
 ENV ROS_DISTRO indigo
-RUN sh -c 'echo "source /opt/ros/indigo/setup.zsh" >> ~/.zshrc'
 COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
-CMD ["/usr/bin/zsh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+CMD ["/bin/bash"]
