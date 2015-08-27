@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-robot
+FROM harmishhk/ros:indigo-desktop-full
 
 # install extra packages required by spencer
 RUN apt-get update && \
@@ -7,12 +7,7 @@ RUN apt-get update && \
     mrpt-apps \
     freeglut3-dev \
     libsvm-dev \
-    ros-indigo-navigation \
-    ros-indigo-cmake-modules \
-    ros-indigo-joy \
-    ros-indigo-camera-info-manager \
-    ros-indigo-driver-base \
-    ros-indigo-polled-camera && \
+    ros-indigo-joy && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

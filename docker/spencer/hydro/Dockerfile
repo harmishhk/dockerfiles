@@ -1,4 +1,4 @@
-FROM harmishhk/ros:hydro-robot
+FROM harmishhk/ros:hydro-desktop-full
 
 # install extra packages required by spencer
 RUN apt-get update && \
@@ -7,12 +7,7 @@ RUN apt-get update && \
     mrpt-apps \
     freeglut3-dev \
     libsvm-dev \
-    ros-hydro-navigation \
-    ros-hydro-cmake-modules \
-    ros-hydro-joy \
-    ros-hydro-camera-info-manager \
-    ros-hydro-driver-base \
-    ros-hydro-polled-camera && \
+    ros-hydro-joy && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
