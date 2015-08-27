@@ -1,8 +1,11 @@
-FROM harmishhk/ros:indigo-desktop
+FROM harmishhk/ros:indigo-base
 
 # install robotpkg
 ENV GIT_SSL_NO_VERIFY=true
 RUN apt-get update && \
+
+    # install dependencies
+    apt-get install -y git && \
 
     # get and bootstrap robotpkg
     mkdir -p /openrobots/src && \

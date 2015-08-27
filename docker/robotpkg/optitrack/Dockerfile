@@ -21,7 +21,8 @@ RUN apt-get update && \
     git clone https://github.com/harmishhk/hanp_msgs /ros_ws/src/hanp_msgs && \
     rm -rf /ros_ws/src/hanp_msgs/.git && \
     /bin/bash -c "source /opt/ros/indigo/setup.bash && catkin_make -C /ros_ws install" && \
-    rm -rf /ros_ws/build  /ros_ws/devel
+    rm -rf /ros_ws/build  /ros_ws/devel && \
+    chmod -R a+rw /ros_ws/install/share/optitrack_person/scripts
 
 # setup entrypoint
 COPY ./entrypoint.sh /entrypoint.sh
