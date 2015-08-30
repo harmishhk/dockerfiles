@@ -1,16 +1,21 @@
-# ros
+# SPENCER
 
-```harmishhk/ros:indigo-desktop``` + dependencies required by [spencer](http://spencer.eu/)
+[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [ros-indigo-desktop-full](https://hub.docker.com/r/harmishhk/ros/) plus dependencies required by [SPENCER](http://spencer.eu)
 
-### tags
+#  Supported tags
 
-- hydro (```harmishhk/spencer:hydro```)
-- indigo (```harmishhk/spencer:indigo```), default tag
-- jade (```harmishhk/spencer:jade```)
+- `hydro`, with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
+- `indigo`, `latest`
+- `jade`
 
-### usage
+# Usage
 
-```docker run -it --rm harmishhk/spencer:indigo```
-
-- share local ROS workspace with ```-v``` option, e.g.  ```-v $HOME/ros/spencer_ws:/ros/spencer_ws```
-- easiest way to network multiple containers is using host networking, with ```--net=host``` option
+```console
+docker run --rm -it \
+  -u "$(id -u):$(id -g)" \
+  -v $HOME/.ros:/.ros \
+  -v $HOME/.config/catkin:/.config/catkin:ro \
+  -v $HOME/ros-workspace:$HOME/ros-workspace \
+  -w $(pwd) \
+  harmishhk/spencer catkin build
+```

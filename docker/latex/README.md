@@ -1,15 +1,22 @@
-# latex
+# LaTeX
 
-[ubuntu 14.04](http://www.ubuntu.com/) + [TeX Live](https://www.tug.org/texlive/) 2015
+[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [TeX Live](https://www.tug.org/texlive/) 2015
 
-### tags
+#  Supported tags and respective `Dockerfile` links
 
-- latest (```harmishhk/latex:latest```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/latex/Dockerfile))
+- [`latest` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/latex/Dockerfile)
 
-### usage
+# Usage
 
-```docker run --rm -v $(pwd):/latex harmishhk/latex latexmk --pdf source.tex```
+```console
+docker run --rm -it \
+  -u "$(id -u):$(id -g)" \
+  -v $(pwd):/latex \
+  --name latex \
+  --net=none \
+  harmishhk/latex latexmk --pdf -outdir=out source.tex
+```
 
-### repository links
+## Linked repositories
 
-- [ubuntu](https://registry.hub.docker.com/_/ubuntu/)
+- [`ubuntu`](https://hub.docker.com/_/ubuntu/)

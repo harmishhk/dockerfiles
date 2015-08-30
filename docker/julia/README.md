@@ -1,15 +1,19 @@
 # julia
 
-[ubuntu 14.04](http://www.ubuntu.com/) + [julia](http://julialang.org/) + some useful julia packages
+[`julia`](https://hub.docker.com/_/julia/) plus some useful [julia](http://julialang.org/) packages
 
-### tags
+# Supported tags and respective `Dockerfile` links
 
-- latest (```harmishhk/julia:latest```, ```harmishhk/julia:julia```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/julia/julia/Dockerfile))
+- [`julia`, `latest` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/julia/julia/Dockerfile)
 
-### usage
+# Usage
 
-```docker run -it --rm harmishhk/julia```
+```console
+docker run -it --rm \
+  -u "$(id -u):$(id -g)" \
+  harmishhk/julia
+```
 
-### repository links
+## Linked repositories
 
-[julia](https://registry.hub.docker.com/_/julia/)
+- [`julia`](https://hub.docker.com/_/julia/)
