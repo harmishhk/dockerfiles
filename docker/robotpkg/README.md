@@ -1,15 +1,19 @@
 # robotpkg
 
-[ros-indigo-base](https://registry.hub.docker.com/u/harmishhk/ros/) + [robotpkg](http://robotpkg.openrobots.org/) + clone of [robotpkg-wip](http://robotpkg.openrobots.org/robotpkg-wip.html)
+[`ros-indigo-base`](https://hub.docker.com/r/harmishhk/ros/) + [`robotpkg`](http://robotpkg.openrobots.org/) + clone of [`robotpkg-wip`](http://robotpkg.openrobots.org/robotpkg-wip.html) repository
 
-### tags
+# Supported tags and respective `Dockerfile` links
 
-- robotpkg (```harmishhk/robotpkg:robotpkg```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg/Dockerfile))
-- optitrack (```harmishhk/robotpkg:optitrack```), adds ```optitrack-genom3``` package ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/optitrack/Dockerfile))
-- robotpkg-wo-ros (```harmishhk/robotpkg:robotpkg-wo-ros```), without [ros-indigo-base](https://registry.hub.docker.com/u/harmishhk/ros/) installation ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg-wo-ros/Dockerfile))
+- [`robotpkg`, `latest` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg/Dockerfile)
+- [`optitrack` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/optitrack/Dockerfile) adds [`optitrack-genom3`](https://git.openrobots.org/projects/optitrack-genom3) and [`optitrack_person`](https://github.com/harmishhk/optitrack_person) packages on the top of `robotpkg`
+- [`robotpkg-wo-ros` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/robotpkg/robotpkg-wo-ros/Dockerfile), using [`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) as base image, without [`ros-indigo-base`](https://hub.docker.com/r/harmishhk/ros/) installation
 
-### usage
-```docker run -it --rm harmishhk/robotpkg:optitrack```
+# Usage
+```console
+docker run -it --rm \
+  -u "$(id -u):$(id -g)" \
+  harmishhk/robotpkg:optitrack optitrack_person.launch mcast:=255.255.255.255
+```
 
-### linked repositories
-[harmishhk/ros](https://registry.hub.docker.com/u/harmishhk/ros/)
+### Linked repositories
+[`harmishhk/ros`](https://hub.docker.com/r/harmishhk/ros/)
