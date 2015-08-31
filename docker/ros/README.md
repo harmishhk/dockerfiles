@@ -1,29 +1,36 @@
 # ros
 
-[ubuntu 14.04](http://www.ubuntu.com/) + [ROS](http://www.ros.org/) jade
+[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [ROS](http://www.ros.org/) jade
 
-### tags
+#  Supported tags and respective `Dockerfile` links
 
-- jade-base (```harmishhk/ros:jade-base```), default tag ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-base/Dockerfile))
-- jade-robot (```harmishhk/ros:jade-robot```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-robot/Dockerfile))
-- jade-navigation (```harmishhk/ros:jade-navigation```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-navigation/Dockerfile))
-- jade-desktop-full (```harmishhk/ros:jade-desktop-full```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-desktop-full/Dockerfile))
-- indigo-base (```harmishhk/ros:indigo-base```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-base/Dockerfile))
-- indigo-robot (```harmishhk/ros:indigo-robot```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-robot/Dockerfile))
-- indigo-navigation (```harmishhk/ros:indigo-navigation```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-navigation/Dockerfile))
-- indigo-desktop-full (```harmishhk/ros:indigo-desktop-full```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-desktop-full/Dockerfile))
-- hydro-base (```harmishhk/ros:hydro-base```), based on ubuntu 12.04 ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-base/Dockerfile))
-- hydro-robot (```harmishhk/ros:hydro-robot```), based on ubuntu 12.04 ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-robot/Dockerfile))
-- hydro-navigation (```harmishhk/ros:hydro-navigation```) ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-navigation/Dockerfile))
-- hydro-desktop-full (```harmishhk/ros:hydro-desktop-full```), based on ubuntu 12.04 ([Dockerfile](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-desktop-full/Dockerfile))
+- [`jade-base` , `latest` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-base/Dockerfile)
+- [`jade-robot` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-robot/Dockerfile)
+- [`jade-navigation` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-navigation/Dockerfile)
+- [`jade-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/jade-desktop-full/Dockerfile)
+- [`indigo-base` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-base/Dockerfile)
+- [`indigo-robot` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-robot/Dockerfile)
+- [`indigo-navigation` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-navigation/Dockerfile)
+- [`indigo-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/indigo-desktop-full/Dockerfile)
+- [`hydro-base` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-base/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
+- [`hydro-robot` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-robot/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
+- [`hydro-navigation` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-navigation/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
+- [`hydro-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/ros/hydro-desktop-full/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
 
-### usage
+# Usage
 
-```docker run -it harmishhk/ros```
+```console
+docker run -it --rm \
+  -u "$(id -u):$(id -g)" \
+  -v $HOME/.ros:/.ros \
+  -v $HOME/.config/catkin:/.config/catkin:ro \
+  -v $(pwd):$(pwd) \
+  -w $(pwd) \
+  harmishhk/ros catkin build
+```
 
-- share local ROS workspace with ```-v``` option, e.g.  ```-v $HOME/ros:/ros```
-- easiest way to network multiple containers is using host networking, with ```--net=host``` option
+- To use host networking, provide `--net=host` option
 
-### repository links
+## Linked repositories
 
-- [ubuntu](https://registry.hub.docker.com/_/ubuntu/)
+- [`ubuntu`](https://hub.docker.com/_/ubuntu/)
