@@ -1,35 +1,40 @@
 FROM harmishhk/ros:indigo-navigation
 
-# install dependencies
-RUN apt-get update
-RUN apt-get install -y python-dev \
-    python3-dev \
-    blender
+RUN apt-get update && \
+    # install dependencies
+    apt-get install -y git \
+        python-dev \
+        python3-dev \
+        blender \
+        xvfb && \
 
-# install morse from source
-ENV HOME /root
-RUN mkdir $HOME/morse $HOME/morse/build ~/morse/install
-RUN cd $HOME/morse && git clone https://github.com/morse-simulator/morse -b 1.3_STABLE
-RUN cd $HOME/morse/build && cmake ../morse -DCMAKE_INSTALL_PREFIX=$HOME/morse/install/1.3 && make install
-ENV PATH $PATH:$HOME/morse/install/1.3/bin
+    # install python3 version of rospkg, catkin-tools required by morse
+    apt-get install -y python3-setuptools && \
+    easy_install3 pip && \
+    pip3 install rospkg catkin-tools && \
 
-# install python3 version of rospkg, catkin-tools required by morse
-RUN apt-get install -y python3-setuptools
-RUN easy_install3 pip
-RUN pip3 install rospkg catkin-tools
+    # install morse from source
+    mkdir /morse /morse/build /morse/install && \
+    cd /morse && git clone https://github.com/morse-simulator/morse -b 1.3_STABLE && \
+    cd /morse/build && cmake ../morse -DCMAKE_INSTALL_PREFIX=/morse/install/1.3 && make install && \
 
-# install pr2 and naviagation packages
-RUN apt-get update
-RUN apt-get install -y \
-    ros-indigo-pr2-common \
-    ros-indigo-pr2-controllers
-RUN mkdir -p /root/catkin_ws/src && \
-    git clone -b 1.3 https://github.com/harmishhk/morse_ros.git /root/catkin_ws/src/morse_ros && \
-    zsh -c "source /opt/ros/indigo/setup.zsh && catkin_make -C /root/catkin_ws install"
+    # install pr2 and naviagation packages
+    apt-get install -y \
+        ros-indigo-pr2-common \
+        ros-indigo-pr2-controllers && \
+    mkdir -p /catkin_ws/src && \
+    git clone -b 1.3 https://github.com/harmishhk/morse_ros.git /catkin_ws/src/morse_ros && \
+    /bin/bash -c "source /opt/ros/indigo/setup.bash && catkin_make -C /catkin_ws install" && \
+    mkdir /.morse && chmod a+rw /.morse && \
 
-# set-up headless mode
+    # clean-up
+    rm -rf /morse/build /morse/morse && \
+    rm -rf /catkin_ws/src /catkin_ws/build  /catkin_ws/devel && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# set-up morse
+ENV PATH $PATH:/morse/install/1.3/bin
 ENV HEADLESS true
-RUN apt-get install -y xvfb
 COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/usr/bin/zsh", "/entrypoint.sh"]
-CMD ["/usr/bin/zsh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+CMD ["morse"]

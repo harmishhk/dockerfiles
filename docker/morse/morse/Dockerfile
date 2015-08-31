@@ -1,25 +1,28 @@
 FROM ubuntu:14.04
 
-# install dependencies
-RUN apt-get update
-RUN apt-get install -y git \
+RUN apt-get update && \
+    # install dependencies
+    apt-get install -y git \
     cmake \
     build-essential \
     pkg-config \
     python-dev \
     python3-dev \
-    blender
+    blender \
+    xvfb && \
 
-# install morse from source
-ENV HOME /root
-RUN mkdir $HOME/morse $HOME/morse/build ~/morse/install
-RUN cd $HOME/morse && git clone https://github.com/morse-simulator/morse -b 1.3_STABLE
-RUN cd $HOME/morse/build && cmake ../morse -DCMAKE_INSTALL_PREFIX=$HOME/morse/install/1.3 && make install
-ENV PATH $PATH:$HOME/morse/install/1.3/bin
+    # install morse from source
+    mkdir /morse /morse/build /morse/install && \
+    cd /morse && git clone https://github.com/morse-simulator/morse -b 1.3_STABLE && \
+    cd /morse/build && cmake ../morse -DBUILD_ROS_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=/morse/install/1.3 && make install && \
+    mkdir /.morse && chmod a+rw /.morse && \
 
-# set-up headless mode
+    # clean-up
+    rm -rf /morse/build /morse/morse && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# set-up morse
+ENV PATH $PATH:/morse/install/1.3/bin
 ENV HEADLESS true
-RUN apt-get install -y xvfb
 COPY ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
-CMD ["/bin/bash"]

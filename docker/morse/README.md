@@ -13,7 +13,7 @@
 ```console
 docker run -it --rm \
   -u "$(id -u):$(id -g)" \
-  harmishhk/ros morse check
+  harmishhk/morse morse check
 ```
 
 - By default `morse` will run in [*headless*](https://sympa.laas.fr/sympa/arc/morse-users/2013-10/msg00105.html) mode, to disable use use environment variable `-e "HEADLESS=false"`
