@@ -1,10 +1,10 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 # return if cannot execute
 set -e
 
 # setup ros
-source /root/catkin_ws/install/setup.zsh
+source /catkin_ws/install/setup.bash ""
 
 # execute given command
 if [[ "$HEADLESS" == true ]]
