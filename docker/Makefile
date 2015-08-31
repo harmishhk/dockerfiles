@@ -68,6 +68,29 @@ build-robotpkg-no-cache:
 	@docker build --no-cache --tag=harmishhk/robotpkg:robotpkg			robotpkg/robotpkg/.
 	@docker build --no-cache --tag=harmishhk/robotpkg:optitrack			robotpkg/optitrack/.
 
+build-julia:
+	@docker build --tag=harmishhk/julia:julia			julia/julia/.
+	@docker build --tag=harmishhk/julia:julia-iv		julia/julia-iv/.
+	@docker build --tag=harmishhk/julia:scipy-julia		julia/scipy-julia/.
+
+build-julia-no-cache:
+	@docker build --no-cache --tag=harmishhk/julia:julia		julia/julia/.
+	@docker build --no-cache --tag=harmishhk/julia:julia-iv		julia/julia-iv/.
+	@docker build --no-cache --tag=harmishhk/julia:scipy-julia	julia/scipy-julia/.
+
+build-latex:
+	@docker build --tag=harmishhk/latex		latex/.
+
+build-morse:
+	@docker build --tag=harmishhk/morse:morse	morse/morse/.
+	@docker build --tag=harmishhk/morse:ros		morse/ros/.
+	@docker build --tag=harmishhk/morse:ros-pr2	morse/ros-pr2/.
+
+build-morse-no-cache:
+	@docker build --no-cache --tag=harmishhk/morse:morse	morse/morse/.
+	@docker build --no-cache --tag=harmishhk/morse:ros		morse/ros/.
+	@docker build --no-cache --tag=harmishhk/morse:ros-pr2	morse/ros-pr2/.
+
 clean-ros:
 	@docker rmi -f harmishhk/ros:hydro-base
 	@docker rmi -f harmishhk/ros:hydro-robot
@@ -95,3 +118,16 @@ clean-robotpkg:
 	@docker rmi -f harmishhk/robotpkg:robotpkg-wo-ros
 	@docker rmi -f harmishhk/robotpkg:robotpkg
 	@docker rmi -f harmishhk/robotpkg:optitrack
+
+clean-julia:
+	@docker rmi -f harmishhk/julia:julia
+	@docker rmi -f harmishhk/julia:julia-iv
+	@docker rmi -f harmishhk/julia:scipy-julia
+
+clean-latex:
+	@docker rmi -f harmishhk/latex
+
+clean-morse:
+	@docker rmi -f harmishhk/morse:morse
+	@docker rmi -f harmishhk/morse:ros
+	@docker rmi -f harmishhk/morse:ros-pr2
