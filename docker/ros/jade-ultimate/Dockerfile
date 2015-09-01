@@ -1,11 +1,15 @@
 FROM harmishhk/ros:jade-desktop-full
 
-# install ros-indigo-desktop-full
 RUN apt-get update && \
     apt-get install -y \
-    ros-jade-hardware-interface \
-    ros-jade-joint-limits-interface \
-    ros-jade-gazebo-ros-control && \
+
+    # # dependencies needed by pmb2 simulation
+    # ros-jade-hardware-interface \
+    # ros-jade-joint-limits-interface \
+    # ros-jade-gazebo-ros-control \
+
+    libgsl0-dev \
+    libnewmat10-dev && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
