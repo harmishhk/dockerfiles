@@ -17,12 +17,16 @@ RUN apt-get update && \
     # download and build optitrack_person
     mkdir -p /ros_ws/src && \
     git clone https://github.com/harmishhk/optitrack_person /ros_ws/src/optitrack_person && \
-    rm -rf /ros_ws/src/optitrack_person/.git && \
     git clone https://github.com/harmishhk/hanp_msgs /ros_ws/src/hanp_msgs && \
-    rm -rf /ros_ws/src/hanp_msgs/.git && \
     /bin/bash -c "source /opt/ros/indigo/setup.bash && catkin_make -C /ros_ws install" && \
-    rm -rf /ros_ws/build  /ros_ws/devel && \
-    chmod -R a+rw /ros_ws/install/share/optitrack_person/scripts
+    chmod -R a+rw /ros_ws/install/share/optitrack_person/scripts && \
+
+    # clean-up
+    rm -rf /ros_ws/src /ros_ws/build  /ros_ws/devel && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+
+    # set defaults
+    echo "source /ros_ws/install/setup.bash" >> /etc/bash.bashrc
 
 # setup entrypoint
 COPY ./entrypoint.sh /entrypoint.sh

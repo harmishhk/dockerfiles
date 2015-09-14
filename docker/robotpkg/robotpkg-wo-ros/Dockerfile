@@ -18,7 +18,7 @@ RUN apt-get update && \
     git clone https://git.openrobots.org/robots/robotpkg/robotpkg-wip.git /openrobots/src/robotpkg/wip && \
 
     # update robotpkg configuration file
-    echo "MAKE_JOBS= 8" >> /openrobots/install/etc/robotpkg.conf
+    echo "MAKE_JOBS= 1" >> /openrobots/install/etc/robotpkg.conf
 
 # set up environ variables for robotpkg
 ENV ROBOTPKG_BASE /openrobots/install

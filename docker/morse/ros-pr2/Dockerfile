@@ -30,7 +30,10 @@ RUN apt-get update && \
     # clean-up
     rm -rf /morse/build /morse/morse && \
     rm -rf /catkin_ws/src /catkin_ws/build  /catkin_ws/devel && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+
+    # set defaults
+    echo "source /catkin_ws/install/setup.bash" >> /etc/bash.bashrc
 
 # set-up morse
 ENV PATH $PATH:/morse/install/1.3/bin

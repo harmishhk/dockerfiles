@@ -19,7 +19,8 @@ RUN apt-get update && \
     rm -rf /openrobots/src/robotpkg/wip/.git && \
 
     # update robotpkg configuration file
-    echo "MAKE_JOBS= 8" >> /openrobots/install/etc/robotpkg.conf
+    echo "MAKE_JOBS= 1" >> /openrobots/install/etc/robotpkg.conf && \
+    echo "export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$ROBOTPKG_BASE/share" >> /etc/bash.bashrc
 
 # set up environ variables for robotpkg
 ENV ROBOTPKG_BASE /openrobots/install
