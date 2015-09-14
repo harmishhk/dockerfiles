@@ -22,7 +22,7 @@ RUN locale-gen en_US.UTF-8 && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 
     # set defaults
-    sh -c 'echo "source /opt/ros/jade/setup.bash" >> /etc/bash.bashrc'
+    echo "source /opt/ros/jade/setup.bash" >> /etc/bash.bashrc
 
 # setup environment
 ENV ROS_DISTRO jade
