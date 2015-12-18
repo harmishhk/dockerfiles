@@ -8,6 +8,7 @@ RUN apt-get update && \
     # ros-jade-joint-limits-interface \
     # ros-jade-gazebo-ros-control \
 
+    # dependencies needed by riskrrt
     libgsl0-dev \
     libnewmat10-dev && \
 
