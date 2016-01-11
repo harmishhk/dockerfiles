@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-desktop-full
+FROM harmish/ros:indigo-desktop-full
 
 # install pr2 packages for indigo
 RUN apt-get update

@@ -1,4 +1,4 @@
-FROM harmishhk/ros:hydro-robot
+FROM harmish/ros:hydro-robot
 
 # install ros-hydro-navigation
 RUN apt-get update && \

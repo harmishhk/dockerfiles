@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-desktop-full
+FROM harmish/ros:jade-desktop-full
 
 # install pr2 related packages
 RUN apt-get update

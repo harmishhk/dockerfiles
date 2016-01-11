@@ -4,7 +4,7 @@
 
 #  Supported tags and respective `Dockerfile` links
 
-- [`latest` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/latex/Dockerfile)
+- [`latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/latex/Dockerfile)
 
 # Usage
 
@@ -14,7 +14,7 @@ docker run --rm -it \
   -v $(pwd):/latex \
   --name latex \
   --net=none \
-  harmishhk/latex latexmk --pdf -outdir=out source.tex
+  harmish/latex latexmk --pdf -outdir=out source.tex
 ```
 
 ## Linked repositories

@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-base
+FROM harmish/ros:indigo-base
 
 # install robotpkg
 ENV GIT_SSL_NO_VERIFY=true

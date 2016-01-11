@@ -1,6 +1,6 @@
 # SPENCER
 
-[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [ros-indigo-desktop-full](https://hub.docker.com/r/harmishhk/ros/) plus dependencies required by [SPENCER](http://spencer.eu)
+[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [ros-indigo-desktop-full](https://hub.docker.com/r/harmish/ros/) plus dependencies required by [SPENCER](http://spencer.eu)
 
 #  Supported tags
 
@@ -17,5 +17,5 @@ docker run --rm -it \
   -v $HOME/.config/catkin:/.config/catkin:ro \
   -v $HOME/ros-workspace:$HOME/ros-workspace \
   -w $(pwd) \
-  harmishhk/spencer catkin build
+  harmish/spencer catkin build
 ```

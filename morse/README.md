@@ -4,16 +4,16 @@
 
 #  Supported tags and respective `Dockerfile` links
 
-- [`morse`, `latest`(*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/morse/morse/Dockerfile)
-- [`ros` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/morse/ros/Dockerfile), with [`harmishhk/ros:jade-robot`](https://hub.docker.com/r/harmishhk/ros/)
-- [`ros-pr2` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/morse/ros-pr2/Dockerfile), with [`harmishhk/ros:indigo-navigation`](https://hub.docker.com/r/harmishhk/ros/) and [PR2 robot](http://wiki.ros.org/Robots/PR2) related packages
+- [`morse`, `latest`(*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/morse/morse/Dockerfile)
+- [`ros` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/morse/ros/Dockerfile), with [`harmish/ros:jade-robot`](https://hub.docker.com/r/harmish/ros/)
+- [`ros-pr2` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/morse/ros-pr2/Dockerfile), with [`harmish/ros:indigo-navigation`](https://hub.docker.com/r/harmish/ros/) and [PR2 robot](http://wiki.ros.org/Robots/PR2) related packages
 
 # Usage
 
 ```console
 docker run -it --rm \
   -u "$(id -u):$(id -g)" \
-  harmishhk/morse morse check
+  harmish/morse morse check
 ```
 
 - By default `morse` will run in [*headless*](https://sympa.laas.fr/sympa/arc/morse-users/2013-10/msg00105.html) mode, to disable use use environment variable `-e "HEADLESS=false"`
@@ -21,4 +21,4 @@ docker run -it --rm \
 
 ## Linked repositories
 
-- [`harmishhk/ros`](https://hub.docker.com/r/harmishhk/ros/)
+- [`harmish/ros`](https://hub.docker.com/r/harmish/ros/)

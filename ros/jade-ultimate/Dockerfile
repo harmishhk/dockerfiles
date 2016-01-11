@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-desktop-full
+FROM harmish/ros:jade-desktop-full
 
 RUN apt-get update && \
     apt-get install -y \

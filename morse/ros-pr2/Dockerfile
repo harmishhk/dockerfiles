@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-navigation
+FROM harmish/ros:indigo-navigation
 
 RUN apt-get update && \
     # install dependencies

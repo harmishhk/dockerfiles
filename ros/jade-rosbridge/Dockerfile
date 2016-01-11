@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-navigation
+FROM harmish/ros:jade-navigation
 
 # install rosbridge
 RUN apt-get update && \

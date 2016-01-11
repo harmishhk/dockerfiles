@@ -1,4 +1,4 @@
-FROM harmishhk/julia:julia
+FROM harmish/julia:julia
 
 # install Images.jl and VideoIO.jl packages
 RUN apt-get update && \

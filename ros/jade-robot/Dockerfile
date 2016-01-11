@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-base
+FROM harmish/ros:jade-base
 
 # install ros-jade-robot
 RUN apt-get update && \

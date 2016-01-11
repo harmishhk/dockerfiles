@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-desktop-full
+FROM harmish/ros:indigo-desktop-full
 
 # install extra packages required by spencer
 RUN apt-get update && \

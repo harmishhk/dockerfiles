@@ -1,4 +1,4 @@
-FROM harmishhk/ros:hydro-desktop-full
+FROM harmish/ros:hydro-desktop-full
 
 # installing pre-requisites for hpp
 RUN apt-get install -y \

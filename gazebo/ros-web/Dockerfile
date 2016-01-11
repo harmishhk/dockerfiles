@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-desktop-full
+FROM harmish/ros:jade-desktop-full
 
 # install gzweb dependencies
 RUN apt-get update

@@ -1,4 +1,4 @@
-FROM harmishhk/gazebo:gazebo
+FROM harmish/gazebo:gazebo
 
 # install gzweb dependencies
 RUN apt-get update

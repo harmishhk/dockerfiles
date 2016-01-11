@@ -1,4 +1,4 @@
-FROM harmishhk/ros:hydro-desktop-full
+FROM harmish/ros:hydro-desktop-full
 
 # install extra packages required by spencer
 RUN apt-get update && \

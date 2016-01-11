@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-base
+FROM harmish/ros:jade-base
 
 # install rosbridge server and ros-dependencies
 RUN apt-get update && \

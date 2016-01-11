@@ -4,10 +4,10 @@
 
 ### build
 - download and copy Nvidia driver to this directory and rename it to ```nvidia.run```.
-```docker build -t harmishhk/nvidia .```
+```docker build -t harmish/nvidia .```
 
 ### run
-```docker run -i -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -t harmishhk/nvidia /bin/bash```
+```docker run -i -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -t harmish/nvidia /bin/bash```
 
 ## references
 1. https://github.com/gklingler/docker3d

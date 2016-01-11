@@ -1,4 +1,4 @@
-FROM harmishhk/ros:hydro-base
+FROM harmish/ros:hydro-base
 
 # install ros-hydro-robot
 RUN apt-get update && \

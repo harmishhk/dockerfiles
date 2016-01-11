@@ -1,4 +1,4 @@
-FROM harmishhk/robotpkg:robotpkg
+FROM harmish/robotpkg:robotpkg
 
 RUN apt-get update && \
     # install system packages for optitrack

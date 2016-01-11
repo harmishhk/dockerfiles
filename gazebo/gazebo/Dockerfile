@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-# FROM harmishhk/nvidia
+# FROM harmish/nvidia
 
 # install common dependencies
 RUN apt-get update

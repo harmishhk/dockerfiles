@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-desktop-full
+FROM harmish/ros:jade-desktop-full
 
 # install extra packages required by spencer
 RUN apt-get update && \

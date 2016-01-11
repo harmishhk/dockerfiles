@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-desktop-full
+FROM harmish/ros:indigo-desktop-full
 
 RUN apt-get update && \
     apt-get install -y \

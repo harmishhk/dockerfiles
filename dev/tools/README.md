@@ -1,2 +1,2 @@
 ### build
-```docker build -t harmishhk/tools .```
+```docker build -t harmish/tools .```
