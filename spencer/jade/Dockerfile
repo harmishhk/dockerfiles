@@ -7,7 +7,15 @@ RUN apt-get update && \
     mrpt-apps \
     freeglut3-dev \
     libsvm-dev \
-    ros-jade-joy && \
+    libsdl-image1.2-dev \
+    libpcap-dev \
+    libgsl0-dev \
+    ros-jade-bfl \
+    ros-jade-control-toolbox \
+    ros-jade-driver-base \
+    ros-jade-sound-play \
+    ros-jade-joy \
+    ros-jade-yocs-cmd-vel-mux && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

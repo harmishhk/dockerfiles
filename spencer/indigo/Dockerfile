@@ -7,12 +7,15 @@ RUN apt-get update && \
     mrpt-apps \
     freeglut3-dev \
     libsvm-dev \
-    libsdl-image-dev \
+    libsdl-image1.2-dev \
     libpcap-dev \
+    libgsl0-dev \
     ros-indigo-bfl \
+    ros-indigo-control-toolbox \
+    ros-indigo-driver-base \
     ros-indigo-sound-play \
     ros-indigo-joy \
-    ros-infido-yocs-cmd && \
+    ros-infido-yocs-cmd-vel-mux && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
