@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-robot
+FROM harmish/ros:jade-robot
 
 RUN apt-get update && \
     # install dependencies

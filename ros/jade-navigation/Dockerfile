@@ -1,4 +1,4 @@
-FROM harmishhk/ros:jade-robot
+FROM harmish/ros:jade-robot
 
 # install ros-jade-navigation
 RUN apt-get update && \

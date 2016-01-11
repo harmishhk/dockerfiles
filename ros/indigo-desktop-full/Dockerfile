@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-navigation
+FROM harmish/ros:indigo-navigation
 
 # install ros-indigo-desktop-full
 RUN apt-get update && \

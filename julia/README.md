@@ -4,14 +4,14 @@
 
 # Supported tags and respective `Dockerfile` links
 
-- [`julia`, `latest` (*Dockerfile*)](https://github.com/harmishhk/boxes/blob/master/docker/julia/julia/Dockerfile)
+- [`julia`, `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/julia/julia/Dockerfile)
 
 # Usage
 
 ```console
 docker run -it --rm \
   -u "$(id -u):$(id -g)" \
-  harmishhk/julia
+  harmish/julia
 ```
 
 ## Linked repositories

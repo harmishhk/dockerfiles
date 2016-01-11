@@ -1,4 +1,4 @@
-FROM harmishhk/ros:hydro-navigation
+FROM harmish/ros:hydro-navigation
 
 # install ros-hydro-desktop-full
 RUN apt-get update && \

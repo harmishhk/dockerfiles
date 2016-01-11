@@ -1,4 +1,4 @@
-FROM harmishhk/ros:indigo-robot
+FROM harmish/ros:indigo-robot
 
 # install ros-indigo-navigation
 RUN apt-get update && \
