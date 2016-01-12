@@ -13,83 +13,83 @@ help:
 	@echo ""
 
 build-ros:
-	@docker build --tag=harmish/ros:hydro-base			ros/hydro-base/.
-	@docker build --tag=harmish/ros:hydro-robot			ros/hydro-robot/.
-	@docker build --tag=harmish/ros:hydro-navigation		ros/hydro-navigation/.
-	@docker build --tag=harmish/ros:hydro-desktop-full	ros/hydro-desktop-full/.
+	@docker build -q --tag=harmish/ros:hydro-base			ros/hydro-base/.
+	@docker build -q --tag=harmish/ros:hydro-robot			ros/hydro-robot/.
+	@docker build -q --tag=harmish/ros:hydro-navigation		ros/hydro-navigation/.
+	@docker build -q --tag=harmish/ros:hydro-desktop-full	ros/hydro-desktop-full/.
 
-	@docker build --tag=harmish/ros:indigo-base			ros/indigo-base/.
-	@docker build --tag=harmish/ros:indigo-robot			ros/indigo-robot/.
-	@docker build --tag=harmish/ros:indigo-navigation		ros/indigo-navigation/.
-	@docker build --tag=harmish/ros:indigo-desktop-full	ros/indigo-desktop-full/.
-	@docker build --tag=harmish/ros:indigo-ultimate		ros/indigo-ultimate/.
+	@docker build -q --tag=harmish/ros:indigo-base			ros/indigo-base/.
+	@docker build -q --tag=harmish/ros:indigo-robot			ros/indigo-robot/.
+	@docker build -q --tag=harmish/ros:indigo-navigation	ros/indigo-navigation/.
+	@docker build -q --tag=harmish/ros:indigo-desktop-full	ros/indigo-desktop-full/.
+	@docker build -q --tag=harmish/ros:indigo-ultimate		ros/indigo-ultimate/.
 
-	@docker build --tag=harmish/ros:jade-base				ros/jade-base/.
-	@docker build --tag=harmish/ros:jade-robot			ros/jade-robot/.
-	@docker build --tag=harmish/ros:jade-navigation		ros/jade-navigation/.
-	@docker build --tag=harmish/ros:jade-desktop-full		ros/jade-desktop-full/.
-	@docker build --tag=harmish/ros:jade-ultimate			ros/jade-ultimate/.
+	@docker build -q --tag=harmish/ros:jade-base			ros/jade-base/.
+	@docker build -q --tag=harmish/ros:jade-robot			ros/jade-robot/.
+	@docker build -q --tag=harmish/ros:jade-navigation		ros/jade-navigation/.
+	@docker build -q --tag=harmish/ros:jade-desktop-full	ros/jade-desktop-full/.
+	@docker build -q --tag=harmish/ros:jade-ultimate		ros/jade-ultimate/.
 
 build-ros-no-cache:
-	@docker build --no-cache --tag=harmish/ros:hydro-base				ros/hydro-base/.
-	@docker build --no-cache --tag=harmish/ros:hydro-robot			ros/hydro-robot/.
-	@docker build --no-cache --tag=harmish/ros:hydro-navigation		ros/hydro-navigation/.
-	@docker build --no-cache --tag=harmish/ros:hydro-desktop-full		ros/hydro-desktop-full/.
+	@docker build -q --no-cache --tag=harmish/ros:hydro-base			ros/hydro-base/.
+	@docker build -q --no-cache --tag=harmish/ros:hydro-robot			ros/hydro-robot/.
+	@docker build -q --no-cache --tag=harmish/ros:hydro-navigation		ros/hydro-navigation/.
+	@docker build -q --no-cache --tag=harmish/ros:hydro-desktop-full	ros/hydro-desktop-full/.
 
-	@docker build --no-cache --tag=harmish/ros:indigo-base			ros/indigo-base/.
-	@docker build --no-cache --tag=harmish/ros:indigo-robot			ros/indigo-robot/.
-	@docker build --no-cache --tag=harmish/ros:indigo-navigation		ros/indigo-navigation/.
-	@docker build --no-cache --tag=harmish/ros:indigo-desktop-full	ros/indigo-desktop-full/.
-	@docker build --no-cache --tag=harmish/ros:indigo-ultimate		ros/indigo-ultimate/.
+	@docker build -q --no-cache --tag=harmish/ros:indigo-base			ros/indigo-base/.
+	@docker build -q --no-cache --tag=harmish/ros:indigo-robot			ros/indigo-robot/.
+	@docker build -q --no-cache --tag=harmish/ros:indigo-navigation		ros/indigo-navigation/.
+	@docker build -q --no-cache --tag=harmish/ros:indigo-desktop-full	ros/indigo-desktop-full/.
+	@docker build -q --no-cache --tag=harmish/ros:indigo-ultimate		ros/indigo-ultimate/.
 
-	@docker build --no-cache --tag=harmish/ros:jade-base				ros/jade-base/.
-	@docker build --no-cache --tag=harmish/ros:jade-robot				ros/jade-robot/.
-	@docker build --no-cache --tag=harmish/ros:jade-navigation		ros/jade-navigation/.
-	@docker build --no-cache --tag=harmish/ros:jade-desktop-full		ros/jade-desktop-full/.
-	@docker build --no-cache --tag=harmish/ros:jade-ultimate			ros/jade-ultimate/.
+	@docker build -q --no-cache --tag=harmish/ros:jade-base				ros/jade-base/.
+	@docker build -q --no-cache --tag=harmish/ros:jade-robot			ros/jade-robot/.
+	@docker build -q --no-cache --tag=harmish/ros:jade-navigation		ros/jade-navigation/.
+	@docker build -q --no-cache --tag=harmish/ros:jade-desktop-full		ros/jade-desktop-full/.
+	@docker build -q --no-cache --tag=harmish/ros:jade-ultimate			ros/jade-ultimate/.
 
 build-spencer:
-	@docker build --tag=harmish/spencer:hydro		spencer/hydro/.
-	@docker build --tag=harmish/spencer:indigo	spencer/indigo/.
-	@docker build --tag=harmish/spencer:jade		spencer/jade/.
+	@docker build -q --tag=harmish/spencer:hydro	spencer/hydro/.
+	@docker build -q --tag=harmish/spencer:indigo	spencer/indigo/.
+	@docker build -q --tag=harmish/spencer:jade	spencer/jade/.
 
 build-spencer-no-cache:
-	@docker build --no-cache --tag=harmish/spencer:hydro		spencer/hydro/.
-	@docker build --no-cache --tag=harmish/spencer:indigo		spencer/indigo/.
-	@docker build --no-cache --tag=harmish/spencer:jade		spencer/jade/.
+	@docker build -q --no-cache --tag=harmish/spencer:hydro		spencer/hydro/.
+	@docker build -q --no-cache --tag=harmish/spencer:indigo	spencer/indigo/.
+	@docker build -q --no-cache --tag=harmish/spencer:jade		spencer/jade/.
 
 build-robotpkg:
-	@docker build --tag=harmish/robotpkg:robotpkg-wo-ros	robotpkg/robotpkg-wo-ros/.
-	@docker build --tag=harmish/robotpkg:robotpkg			robotpkg/robotpkg/.
-	@docker build --tag=harmish/robotpkg:optitrack		robotpkg/optitrack/.
+	@docker build -q --tag=harmish/robotpkg:robotpkg-wo-ros		robotpkg/robotpkg-wo-ros/.
+	@docker build -q --tag=harmish/robotpkg:robotpkg			robotpkg/robotpkg/.
+	@docker build -q --tag=harmish/robotpkg:optitrack			robotpkg/optitrack/.
 
 build-robotpkg-no-cache:
-	@docker build --no-cache --tag=harmish/robotpkg:robotpkg-wo-ros	robotpkg/robotpkg-wo-ros/.
-	@docker build --no-cache --tag=harmish/robotpkg:robotpkg			robotpkg/robotpkg/.
-	@docker build --no-cache --tag=harmish/robotpkg:optitrack			robotpkg/optitrack/.
+	@docker build -q --no-cache --tag=harmish/robotpkg:robotpkg-wo-ros	robotpkg/robotpkg-wo-ros/.
+	@docker build -q --no-cache --tag=harmish/robotpkg:robotpkg			robotpkg/robotpkg/.
+	@docker build -q --no-cache --tag=harmish/robotpkg:optitrack		robotpkg/optitrack/.
 
 build-julia:
-	@docker build --tag=harmish/julia:julia			julia/julia/.
-	@docker build --tag=harmish/julia:julia-iv		julia/julia-iv/.
-	@docker build --tag=harmish/julia:scipy-julia		julia/scipy-julia/.
+	@docker build -q --tag=harmish/julia:julia			julia/julia/.
+	@docker build -q --tag=harmish/julia:julia-iv		julia/julia-iv/.
+	@docker build -q --tag=harmish/julia:scipy-julia	julia/scipy-julia/.
 
 build-julia-no-cache:
-	@docker build --no-cache --tag=harmish/julia:julia		julia/julia/.
-	@docker build --no-cache --tag=harmish/julia:julia-iv		julia/julia-iv/.
-	@docker build --no-cache --tag=harmish/julia:scipy-julia	julia/scipy-julia/.
+	@docker build -q --no-cache --tag=harmish/julia:julia			julia/julia/.
+	@docker build -q --no-cache --tag=harmish/julia:julia-iv		julia/julia-iv/.
+	@docker build -q --no-cache --tag=harmish/julia:scipy-julia		julia/scipy-julia/.
 
 build-latex:
-	@docker build --tag=harmish/latex		latex/.
+	@docker build -q --tag=harmish/latex		latex/.
 
 build-morse:
-	@docker build --tag=harmish/morse:morse	morse/morse/.
-	@docker build --tag=harmish/morse:ros		morse/ros/.
-	@docker build --tag=harmish/morse:ros-pr2	morse/ros-pr2/.
+	@docker build -q --tag=harmish/morse:morse		morse/morse/.
+	@docker build -q --tag=harmish/morse:ros		morse/ros/.
+	@docker build -q --tag=harmish/morse:ros-pr2	morse/ros-pr2/.
 
 build-morse-no-cache:
-	@docker build --no-cache --tag=harmish/morse:morse	morse/morse/.
-	@docker build --no-cache --tag=harmish/morse:ros		morse/ros/.
-	@docker build --no-cache --tag=harmish/morse:ros-pr2	morse/ros-pr2/.
+	@docker build -q --no-cache --tag=harmish/morse:morse		morse/morse/.
+	@docker build -q --no-cache --tag=harmish/morse:ros			morse/ros/.
+	@docker build -q --no-cache --tag=harmish/morse:ros-pr2		morse/ros-pr2/.
 
 clean-ros:
 	@docker rmi -f harmish/ros:hydro-base
