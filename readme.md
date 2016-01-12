@@ -1,7 +1,7 @@
 dockerfiles
 ======
-A collection of [Dockerfiels](https://www.docker.com/) for images I use.
+A collection of [Docker](https://www.docker.com/)files for images I use.
 
-For usage check ```readme.md``` inside particular folder.
+For usage check ```README.md``` inside particular folder.
 
 Images can be pulled from the docker hub under [harmish](https://hub.docker.com/r/harmish/).
