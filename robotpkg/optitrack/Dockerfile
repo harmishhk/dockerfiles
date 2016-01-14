@@ -9,9 +9,9 @@ RUN apt-get update && \
     apt-get install -y ros-indigo-tf && \
 
     # install genom packages for optitrack
-    cd openrobots/src/robotpkg/net/genomix && make update && \
+    cd /openrobots/src/robotpkg/net/genomix && make update && \
     echo "PKG_OPTIONS.optitrack-genom3+= ros-client-ros ros-client-c ros-server" >> /openrobots/install/etc/robotpkg.conf && \
-    cd /openrobots/src/robotpkg/wip/optitrack-genom3 && make update && \
+    cd /openrobots/src/robotpkg/localization/optitrack-genom3 && make update && \
     cd /openrobots/src/robotpkg/wip/tcl-genomix && make update && \
 
     # download and build optitrack_person
