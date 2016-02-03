@@ -15,7 +15,7 @@ RUN apt-get update && \
     ros-indigo-driver-base \
     ros-indigo-sound-play \
     ros-indigo-joy \
-    ros-infido-yocs-cmd-vel-mux && \
+    ros-indigo-yocs-cmd-vel-mux && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
