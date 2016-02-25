@@ -9,13 +9,12 @@
 # Usage
 
 ```console
-docker run --rm -t \
-    --name jekyll \
-    -v "$(pwd):$(pwd)" \
-    -w "$(pwd)" \
-    -p 4000:4000 \
-    -u "$(id -u):$(id -g)" \
-    harmish/jekyll jekyll build
+docker run --rm -t              `# remove container after use` \
+    -p 4000:4000                `# publish default jekyll port` \
+    --name jekyll               `# name the container` \
+    -v $(pwd):$(pwd)            `# mount current directory` \
+    -w $(pwd)                   `# start workspaces at current directory` \
+    harmish/jekyll jekyll $@    `# execute jekyll with given arguments`
 ```
 
 ## Linked repositories

@@ -9,9 +9,12 @@
 # Usage
 
 ```console
-docker run -it --rm \
-  -u "$(id -u):$(id -g)" \
-  harmish/julia
+docker run --rm -it                                 `# remove container after use` \
+    -v $HOME/.julia_history:/root/.julia_history    `# share julia_history` \
+    -v $HOME/.julia:/root/.julia                    `# share julia packages` \
+    -v $(pwd):$(pwd)                                `# mount current directory` \
+    -w $(pwd)                                       `# start workspaces at current directory` \
+    harmish/julia:latest julia $@                   `# execute julia with given arguments`
 ```
 
 ## Linked repositories
