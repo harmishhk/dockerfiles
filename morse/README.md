@@ -11,9 +11,8 @@
 # Usage
 
 ```console
-docker run -it --rm \
-  -u "$(id -u):$(id -g)" \
-  harmish/morse morse check
+docker run --rm -it             `# remove container after use` \
+    harmish/morse:morse $@      `# run morse with given arguments`
 ```
 
 - By default `morse` will run in [*headless*](https://sympa.laas.fr/sympa/arc/morse-users/2013-10/msg00105.html) mode, to disable use use environment variable `-e "HEADLESS=false"`
