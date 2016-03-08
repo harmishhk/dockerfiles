@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 # install texlive
 ADD http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz /tmp/
 RUN apt-get update && \
-    apt-get install -y wget && \
+    apt-get install -y wget ghostscript && \
     mkdir /tmp/texlive && \
     tar -C /tmp/texlive --strip-components=1 -xvzf /tmp/install-tl-unx.tar.gz && \
     touch /tmp/texlive.profile && \
