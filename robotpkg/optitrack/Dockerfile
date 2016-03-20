@@ -12,7 +12,7 @@ RUN apt-get update && \
     cd /openrobots/src/robotpkg/net/genomix && make update && \
     echo "PKG_OPTIONS.optitrack-genom3+= ros-client-ros ros-client-c ros-server" >> /openrobots/install/etc/robotpkg.conf && \
     cd /openrobots/src/robotpkg/localization/optitrack-genom3 && make update && \
-    cd /openrobots/src/robotpkg/wip/tcl-genomix && make update && \
+    cd /openrobots/src/robotpkg/supervision/tcl-genomix && make update && \
 
     # download and build optitrack_person
     mkdir -p /ros_ws/src && \
