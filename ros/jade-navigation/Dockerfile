@@ -3,7 +3,8 @@ FROM harmish/ros:jade-robot
 # install ros-jade-navigation
 RUN apt-get update && \
     apt-get install -y \
-    ros-jade-navigation && \
+    ros-jade-navigation \
+    gdbserver && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
