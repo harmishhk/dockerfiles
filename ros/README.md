@@ -4,7 +4,11 @@
 
 #  Supported tags and respective `Dockerfile` links
 
-- [`jade-base` , `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-base/Dockerfile)
+- [`kinetic-base` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-base/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
+- [`kinetic-robot` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-robot/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
+- [`kinetic-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-navigation/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
+- [`kinetic-desktop-full` , `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-desktop-full/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
+- [`jade-base` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-base/Dockerfile)
 - [`jade-robot` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-robot/Dockerfile)
 - [`jade-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-navigation/Dockerfile)
 - [`jade-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-desktop-full/Dockerfile)
