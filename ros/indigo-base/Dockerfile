@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM nvidia/cuda
 
 # setup environment
 ENV LANG en_US.UTF-8

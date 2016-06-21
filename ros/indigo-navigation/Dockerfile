@@ -4,7 +4,19 @@ FROM harmish/ros:indigo-robot
 RUN apt-get update && \
     apt-get install -y \
     ros-indigo-navigation \
+    ros-indigo-control-toolbox \
+    ros-indigo-interactive-markers \
+    #ros-indigo-libg2o \
     gdbserver && \
+
+    apt-get install -y wget libopenblas-dev liblapack-dev && \
+    wget -O /tmp/SuiteSparse-4.5.3.tar.gz http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz && \
+    tar -C /tmp -xzvf /tmp/SuiteSparse-4.5.3.tar.gz && \
+    sh -c "cd /tmp/SuiteSparse/metis-5.1.0 && make config prefix=/usr/local && make install" && \
+    sh -c "cd /tmp/SuiteSparse && make install INSTALL_LIB=/usr/local/lib INSTALL_INCLUDE=/usr/local/include" && \
+
+    git clone https://github.com/RainerKuemmerle/g2o.git /tmp/g2o && \
+    sh -c "mkdir /tmp/g2o/build && cd /tmp/g2o/build && cmake ../ && make install" && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
