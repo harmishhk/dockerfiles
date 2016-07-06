@@ -111,7 +111,15 @@ build-spencer-no-cache:
 	@docker build -q --no-cache --tag=harmish/spencer:indigo	spencer/indigo/.
 	@docker build -q --no-cache --tag=harmish/spencer:jade		spencer/jade/.
 
-build-all: build-julia build-latex build-morse build-robotpkg build-ros build-spencer
+build-gazebo:
+	@docker build -q --tag=harmish/gazebo:ros	    gazebo/ros/.
+	@docker build -q --tag=harmish/gazebo:ros-pr2	gazebo/ros-pr2/.
+
+build-gazebo-no-cache:
+	@docker build -q --no-cache --tag=harmish/gazebo:ros	    gazebo/ros/.
+	@docker build -q --no-cache --tag=harmish/gazebo:ros-pr2	gazebo/ros-pr2/.
+
+build-all: build-julia build-latex build-morse build-robotpkg build-ros build-spencer build-gazebo
 
 clean-julia:
 	@docker rmi -f harmish/julia:julia || true
@@ -163,5 +171,10 @@ clean-spencer:
 	@docker rmi -f harmish/spencer:hydro || true
 	@docker rmi -f harmish/spencer:indigo || true
 	@docker rmi -f harmish/spencer:jade || true
+
+clean-gazebo:
+	@docker rmi -f harmish/gazebo:ros || true
+	@docker rmi -f harmish/gazebo:ros-pr2 || true
+
 
 clean: clean-julia clean-latex clean-morse clean-robotpkg clean-ros clean-spencer

@@ -4,9 +4,10 @@ FROM harmish/ros:{distro}-desktop-full
 RUN apt-get update && \
     apt-get install -y \
         ros-$ROS_DISTRO-pr2-common \
+        ros-$ROS_DISTRO-pr2-controllers \
         ros-$ROS_DISTRO-pr2-mechanism \
         ros-$ROS_DISTRO-pr2-navigation \
-        ros-$ROS_DISTRO-pr2-pr2-tuckarm \
+        ros-$ROS_DISTRO-pr2-tuckarm \
         ros-$ROS_DISTRO-pr2-teleop \
         ros-$ROS_DISTRO-pr2-simulator && \
 
