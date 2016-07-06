@@ -1,21 +1,21 @@
 # gazebo
 
-[ubuntu 14.04](http://www.ubuntu.com/) + [gazebo](http://gazebosim.org/) 5.0
+[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [ROS](http://www.ros.org/) indigo plus [gazebo](http://gazebosim.org/) 7.2
 
-### tags
+#  Supported tags and respective `Dockerfile` links
 
-- gazebo (```harmish/gazebo:gazebo```), default tag ([Dockerfile](https://github.com/harmishhk/dockerfiles/blob/master/gazebo/gazebo/Dockerfile))
-- web (```harmish/gazebo:web```), gazebo + [gzweb](https://bitbucket.org/osrf/gzweb) ([Dockerfile](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-desktop/Dockerfile))
-- ros-web (```harmish/gazebo:ros-web```), [ros jade](http://www.ros.org/) + gazebo + [gzweb](https://bitbucket.org/osrf/gzweb) ([Dockerfile](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-desktop/Dockerfile))
+- [`ros` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/gazebo/ros/Dockerfile)
+- [`ros-pr2` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/gazebo/ros-pr2/Dockerfile)
 
-### usage
+# Usage
 
-```docker run -i --rm harmish/gazebo```
+```console
+docker run -it --rm \
+    harmish/gazebo:ros
+```
 
-- for setting ports for gzweb, ```docker run -i -p 8080:8080 -p 7681:7681 -t harmish/gazebo:web```
-- for using host display you can use, ```docker run -i -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -t harmish/gazebo```
-- easiest way to network multiple containers is using host networking, with ```--net=host``` option
+- For setting ports for gzweb, ```docker run -i -p 8080:8080 -p 7681:7681 -t harmish/gazebo:ros```.
+- For using host display you can use, ```docker run -i -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -t harmish/gazebo```.
 
-### references
-https://github.com/CognitiveRobotics/omnimapper/blob/master/docker/dox/Dockerfile
-https://registry.hub.docker.com/u/jorgeluisrmx/gazebo5/
+### References
+https://github.com/osrf/docker_images
