@@ -1,8 +1,10 @@
 FROM scratch
 
 # install nvidia driver
-RUN apt-get update
-RUN apt-get install -y mesa-utils binutils
 ADD nvidia.run /tmp/nvidia.run
-RUN sh /tmp/nvidia.run -a -N --ui=none --no-kernel-module
-RUN rm /tmp/nvidia.run
+RUN apt-get update && \
+    apt-get install -y x-window-system mesa-utils binutils module-init-tools && \
+    sh /tmp/nvidia.run -a -N --ui=none --no-kernel-module && \
+
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

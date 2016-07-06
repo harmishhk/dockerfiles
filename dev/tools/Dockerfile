@@ -1,14 +1,15 @@
 FROM scratch
 
-# install necessities
-RUN apt-get update
-RUN apt-get install -y zsh tmux vim git
+ENV USER_HOME /root
 
-# install oh-my-zsh
-ENV HOME /root
-RUN git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-COPY zshrc $HOME/.zshrc_extra
-RUN echo "source $HOME/.zshrc_extra" >> ~/.zshrc
+# install necessities
+RUN apt-get update && \
+    apt-get install -y git tmux vim zsh && \
+
+    # install oh-my-zsh
+    git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $USER_HOME/.oh-my-zsh
+    echo "source $USER_HOME/.zshrc_extra" >> $HOME/.zshrc
 
 # copy dev-env scripts
-COPY tmux.conf /root/.tmux.conf
+COPY zshrc $USER_HOME/.zshrc_extra
+COPY tmux.conf $USER_HOME/.tmux.conf

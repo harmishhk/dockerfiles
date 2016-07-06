@@ -1,5 +1,14 @@
-FROM harmish/ros:indigo-desktop-full
+FROM harmish/ros:{distro}-desktop-full
 
-# install pr2 packages for indigo
-RUN apt-get update
-RUN apt-get install -y ros-indigo-pr2-common ros-indigo-pr2-mechanism ros-indigo-pr2-navigation ros-indigo-pr2-simulator ros-indigo-pr2-tuckarm
+# install pr2 packages for ros
+RUN apt-get update && \
+    apt-get install -y \
+        ros-$ROS_DISTRO-pr2-common \
+        ros-$ROS_DISTRO-pr2-mechanism \
+        ros-$ROS_DISTRO-pr2-navigation \
+        ros-$ROS_DISTRO-pr2-pr2-tuckarm \
+        ros-$ROS_DISTRO-pr2-teleop \
+        ros-$ROS_DISTRO-pr2-simulator && \
+
+    # clean-up
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
