@@ -37,9 +37,10 @@ RUN apt-get update && \
 
 # set-up morse
 ENV MORSE_ROOT /morse
+ENV MORSE_BLENDER /blender/blender
 ENV MORSE_RESOURCE_PATH /morse/
 ENV PATH /miniconda/bin:/morse/bin/:$PATH
 ENV PYTHONPATH /morse/install/$morseb/lib/python3/dist-packages:$PYTHONPATH
 ENV HEADLESS true
-COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["bash", "/entrypoint.sh"]

@@ -1,44 +1,34 @@
-FROM harmish/ros:indigo-navigation
+FROM ros:indigo-ros-core
 
 ARG morseb=1.4_STABLE
+ENV MORSE_VERSION $morseb
 
 RUN apt-get update && \
     # install dependencies
-    apt-get install -y \
+    apt-get install -y git \
+        blender \
         build-essential \
-        cmake \
-        git \
-        pkg-config \
-        redis-server \
-        wget \
+        python-dev \
+        python3-dev \
         xvfb && \
 
-    # get bleder
-    wget -O /tmp/blender.tar.bz2 http://download.blender.org/release/Blender2.77/blender-2.77a-linux-glibc211-x86_64.tar.bz2 && \
-    mkdir /blender && tar -jxf /tmp/blender.tar.bz2 -C /blender --strip-components=1 && \
-
-    # install conda
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
-    bash /tmp/miniconda.sh -b -p /miniconda && \
+    # install python3 version of rospkg, catkin-tools required by morse
+    apt-get install -y python3-setuptools && \
+    easy_install3 pip && \
+    pip3 install rospkg catkin-tools && \
 
     # install morse from source
-    git clone https://github.com/morse-simulator/morse -b $morseb /tmp/morse && \
+    git clone https://github.com/morse-simulator/morse -b $MORSE_VERSION /tmp/morse && \
     mkdir /tmp/morse/build /morse && \
-    cd /tmp/morse/build && cmake .. -DPYTHON_EXECUTABLE=/miniconda/bin/python -DBUILD_ROS_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=/morse && make install && \
-    ln -s /morse/lib/python3.5/site-packages/pymorse /miniconda/lib/python3.5/site-packages/pymorse && \
-
-    # install morseweb
-    git clone https://github.com/yarox/morseweb /morseweb && \
-    /miniconda/bin/pip install --no-cache-dir -r /morseweb/requirements.txt && \
+    cd /tmp/morse/build && cmake .. -DCMAKE_INSTALL_PREFIX=/morse && make install && \
 
     # clean-up
-    rm -rf /morseweb/.git && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # set-up morse
 ENV MORSE_ROOT /morse
-ENV MORSE_RESOURCE_PATH /morse/
-ENV PATH /miniconda/bin:/morse/bin/:$PATH
+ENV PATH $PATH:/morse/bin
 ENV HEADLESS true
-COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["bash", "/entrypoint.sh"]
+CMD ["morse"]
