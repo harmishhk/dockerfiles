@@ -45,61 +45,34 @@ build-robotpkg-no-cache:
 	@docker build -q --no-cache --tag=harmish/robotpkg:robotpkg			robotpkg/robotpkg/.
 	@docker build -q --no-cache --tag=harmish/robotpkg:optitrack		robotpkg/optitrack/.
 
-build-ros-hydro:
-	@docker build -q --tag=harmish/ros:hydro-base			ros/hydro-base/.
-	@docker build -q --tag=harmish/ros:hydro-robot			ros/hydro-robot/.
-	@docker build -q --tag=harmish/ros:hydro-navigation		ros/hydro-navigation/.
-	@docker build -q --tag=harmish/ros:hydro-desktop-full	ros/hydro-desktop-full/.
-
 build-ros-indigo:
-	@docker build -q --tag=harmish/ros:indigo-base			ros/indigo-base/.
-	@docker build -q --tag=harmish/ros:indigo-robot			ros/indigo-robot/.
 	@docker build -q --tag=harmish/ros:indigo-navigation	ros/indigo-navigation/.
-	@docker build -q --tag=harmish/ros:indigo-desktop-full	ros/indigo-desktop-full/.
-	@docker build -q --tag=harmish/ros:indigo-ultimate		ros/indigo-ultimate/.
+	@docker build -q --tag=harmish/ros:indigo-devel		    ros/indigo-devel/.
+	@docker build -q --tag=harmish/ros:indigo-rosbridge		ros/indigo-rosbridge/.
 
 build-ros-jade:
-	@docker build -q --tag=harmish/ros:jade-base			ros/jade-base/.
-	@docker build -q --tag=harmish/ros:jade-robot			ros/jade-robot/.
 	@docker build -q --tag=harmish/ros:jade-navigation		ros/jade-navigation/.
-	@docker build -q --tag=harmish/ros:jade-desktop-full	ros/jade-desktop-full/.
-	@docker build -q --tag=harmish/ros:jade-ultimate		ros/jade-ultimate/.
+	@docker build -q --tag=harmish/ros:jade-devel		    ros/jade-devel/.
 
 build-ros-kinetic:
-	@docker build -q --tag=harmish/ros:kinetic-base			ros/kinetic-base/.
-	@docker build -q --tag=harmish/ros:kinetic-robot		ros/kinetic-robot/.
 	@docker build -q --tag=harmish/ros:kinetic-navigation	ros/kinetic-navigation/.
-	@docker build -q --tag=harmish/ros:kinetic-desktop-full	ros/kinetic-desktop-full/.
-
-build-ros-hydro-no-cache:
-	@docker build -q --no-cache --tag=harmish/ros:hydro-base			ros/hydro-base/.
-	@docker build -q --no-cache --tag=harmish/ros:hydro-robot			ros/hydro-robot/.
-	@docker build -q --no-cache --tag=harmish/ros:hydro-navigation		ros/hydro-navigation/.
-	@docker build -q --no-cache --tag=harmish/ros:hydro-desktop-full	ros/hydro-desktop-full/.
+	@docker build -q --tag=harmish/ros:kinetic-devel    	ros/kinetic-devel/.
 
 build-ros-indigo-no-cache:
-	@docker build -q --no-cache --tag=harmish/ros:indigo-base			ros/indigo-base/.
-	@docker build -q --no-cache --tag=harmish/ros:indigo-robot			ros/indigo-robot/.
 	@docker build -q --no-cache --tag=harmish/ros:indigo-navigation		ros/indigo-navigation/.
-	@docker build -q --no-cache --tag=harmish/ros:indigo-desktop-full	ros/indigo-desktop-full/.
-	@docker build -q --no-cache --tag=harmish/ros:indigo-ultimate		ros/indigo-ultimate/.
+	@docker build -q --no-cache --tag=harmish/ros:indigo-devel      	ros/indigo-devel/.
 
 build-ros-jade-no-cache:
-	@docker build -q --no-cache --tag=harmish/ros:jade-base				ros/jade-base/.
-	@docker build -q --no-cache --tag=harmish/ros:jade-robot			ros/jade-robot/.
 	@docker build -q --no-cache --tag=harmish/ros:jade-navigation		ros/jade-navigation/.
-	@docker build -q --no-cache --tag=harmish/ros:jade-desktop-full		ros/jade-desktop-full/.
-	@docker build -q --no-cache --tag=harmish/ros:jade-ultimate			ros/jade-ultimate/.
+	@docker build -q --no-cache --tag=harmish/ros:jade-devel      		ros/jade-devel/.
 
 build-ros-kinetic-no-cache:
-	@docker build -q --no-cache --tag=harmish/ros:kinetic-base			ros/kinetic-base/.
-	@docker build -q --no-cache --tag=harmish/ros:kinetic-robot			ros/kinetic-robot/.
 	@docker build -q --no-cache --tag=harmish/ros:kinetic-navigation	ros/kinetic-navigation/.
-	@docker build -q --no-cache --tag=harmish/ros:kinetic-desktop-full	ros/kinetic-desktop-full/.
+	@docker build -q --no-cache --tag=harmish/ros:kinetic-devel     	ros/kinetic-devel/.
 
-build-ros: build-ros-hydro build-ros-indigo build-ros-jade build-ros-kinetic
+build-ros: build-ros-indigo build-ros-jade build-ros-kinetic
 
-build-ros-no-cache: build-ros-hydro-no-cache build-ros-indigo-no-cache build-ros-jade-no-cache build-ros-kinetic-no-cache
+build-ros-no-cache: build-ros-indigo-no-cache build-ros-jade-no-cache build-ros-kinetic-no-cache
 
 build-spencer:
 	@docker build -q --tag=harmish/spencer:hydro	spencer/hydro/.

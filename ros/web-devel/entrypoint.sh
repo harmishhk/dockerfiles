@@ -7,7 +7,7 @@ set -e
 if [[ $1 == "build" ]]
 then
     shift
-    source /build_rosweb.sh
+    source /build_roswebtools.sh
 fi
 
 # executre given command

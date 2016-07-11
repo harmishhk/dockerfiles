@@ -1,8 +1,8 @@
-FROM harmish/ros:jade-navigation
+FROM ros:indigo-ros-core
 
-# install rosbridge
+    # install rosbridge
 RUN apt-get update && \
-    apt-get install -y ros-jade-rosbridge-server && \
+    apt-get install -y ros-jade-rosbridge-suite && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
