@@ -2,7 +2,7 @@ FROM ros:indigo-ros-core
 
     # install rosbridge
 RUN apt-get update && \
-    apt-get install -y ros-jade-rosbridge-suite && \
+    apt-get install -y ros-indigo-rosbridge-suite && \
 
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
