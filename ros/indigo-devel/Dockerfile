@@ -3,6 +3,7 @@ FROM harmish/ros:indigo-navigation
     # install gdbserver
 RUN apt-get update && \
     apt-get install -y \
+        python-catkin-tools \
         gdbserver && \
 
     # replace catkin (with Catch) and catkin_pkg
