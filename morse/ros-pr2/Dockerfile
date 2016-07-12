@@ -10,8 +10,11 @@ RUN apt-get update && \
         ros-$ROS_DISTRO-pr2-controllers \
         ros-$ROS_DISTRO-pr2-mechanism \
         ros-$ROS_DISTRO-pr2-navigation \
-        ros-$ROS_DISTRO-pr2-tuckarm \
+        ros-$ROS_DISTRO-pr2-common-actions  \
         ros-$ROS_DISTRO-pr2-teleop && \
+
+    # fix for tuck-arms
+    chmod a+x /opt/ros/indigo/share/pr2_tuck_arms_action/tuck_arms_test.py && \
 
     # install morse-ros packages
     git clone https://github.com/harmishhk/morse_ros.git -b $MORSE_VERSION /catkin_ws/src/morse_ros && \
