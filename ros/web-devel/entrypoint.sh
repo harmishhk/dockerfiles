@@ -7,8 +7,8 @@ set -e
 if [[ $1 == "build" ]]
 then
     shift
-    source /build_roswebtools.sh
+    source /build_roswebtools.sh "$@"
+else
+    # otherwise executre given command
+    exec "$@"
 fi
-
-# executre given command
-exec "$@"
