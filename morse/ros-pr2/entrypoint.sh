@@ -4,7 +4,7 @@
 set -e
 
 # setup ros
-source "/catkin_ws/install/setup.bash"
+source "/opt/ros/indigo/setup.bash"
 
 # execute given command
 if [[ "$HEADLESS" == true ]]
