@@ -18,4 +18,4 @@ docker run -it --rm \
 
 ## Linked repositories
 
-- [`harmish/ros`](https://hub.docker.com/r/harmish/ros/)
+- [`ros`](https://hub.docker.com/_/ros/)
