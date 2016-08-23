@@ -1,25 +1,18 @@
 # ros
 
-[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [ROS](http://www.ros.org/) jade
+[ROS](http://www.ros.org/) kinetic, jade or indigo with navigation-packages
 
 #  Supported tags and respective `Dockerfile` links
 
-- [`kinetic-base` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-base/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
-- [`kinetic-robot` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-robot/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
-- [`kinetic-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-navigation/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
-- [`kinetic-desktop-full` , `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-desktop-full/Dockerfile), with [`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/)
-- [`jade-base` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-base/Dockerfile)
-- [`jade-robot` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-robot/Dockerfile)
-- [`jade-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-navigation/Dockerfile)
-- [`jade-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-desktop-full/Dockerfile)
-- [`indigo-base` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-base/Dockerfile)
-- [`indigo-robot` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-robot/Dockerfile)
+- [`indigo-devel` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-devel/Dockerfile)
 - [`indigo-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-navigation/Dockerfile)
-- [`indigo-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-desktop-full/Dockerfile)
-- [`hydro-base` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/hydro-base/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
-- [`hydro-robot` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/hydro-robot/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
-- [`hydro-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/hydro-navigation/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
-- [`hydro-desktop-full` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/hydro-desktop-full/Dockerfile), with [`ubuntu:12.04`](https://hub.docker.com/_/ubuntu/)
+- [`indigo-pr2` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-pr2/Dockerfile)
+- [`indigo-rosbridge` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-rosbridge/Dockerfile)
+- [`jade-devel (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-devel/Dockerfile)
+- [`jade-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-navigation/Dockerfile)
+- [`kinetic-devel , `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-devel/Dockerfile)
+- [`kinetic-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-navigation/Dockerfile)
+- [`web-devel` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/web-devel/Dockerfile)
 
 # Usage
 
@@ -37,4 +30,4 @@ docker run -it --rm \
 
 ## Linked repositories
 
-- [`ubuntu`](https://hub.docker.com/_/ubuntu/)
+- [`ros`](https://hub.docker.com/_/ros/)
