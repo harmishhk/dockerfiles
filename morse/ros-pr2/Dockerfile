@@ -24,6 +24,3 @@ RUN apt-get update && \
     # clean-up
     rm -rf /catkin_ws /pr2_ws && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# update entrypoint
-COPY entrypoint.sh /entrypoint.sh
