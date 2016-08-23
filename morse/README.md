@@ -20,4 +20,4 @@ docker run --rm -it             `# remove container after use` \
 
 ## Linked repositories
 
-- [`harmish/ros`](https://hub.docker.com/r/harmish/ros/)
+- [`ros`](https://hub.docker.com/_/ros/)
