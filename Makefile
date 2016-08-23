@@ -74,6 +74,12 @@ build-ros: build-ros-indigo build-ros-jade build-ros-kinetic
 
 build-ros-no-cache: build-ros-indigo-no-cache build-ros-jade-no-cache build-ros-kinetic-no-cache
 
+build-typescript:
+	@docker build -q --tag=harmish/typescript:latest typescript/.
+
+build-typescript-no-cache:
+	@docker build -q --no-cache --tag=harmish/typescript:latest typescript/.
+
 build-spencer:
 	@docker build -q --tag=harmish/spencer:hydro	spencer/hydro/.
 	@docker build -q --tag=harmish/spencer:indigo	spencer/indigo/.
@@ -92,7 +98,7 @@ build-gazebo-no-cache:
 	@docker build -q --no-cache --tag=harmish/gazebo:ros	    gazebo/ros/.
 	@docker build -q --no-cache --tag=harmish/gazebo:ros-pr2	gazebo/ros-pr2/.
 
-build-all: build-julia build-latex build-morse build-robotpkg build-ros build-spencer build-gazebo
+build-all: build-julia build-latex build-morse build-robotpkg build-ros build-typescript build-spencer build-gazebo
 
 clean-julia:
 	@docker rmi -f harmish/julia:julia || true
@@ -140,6 +146,9 @@ clean-ros-kinetic:
 
 clean-ros: clean-ros-hydro clean-ros-indigo clean-ros-jade clean-ros-kinetic
 
+clean-typescript:
+	@docker rmi -f harmish/typescript:latest || true
+
 clean-spencer:
 	@docker rmi -f harmish/spencer:hydro || true
 	@docker rmi -f harmish/spencer:indigo || true
@@ -150,4 +159,4 @@ clean-gazebo:
 	@docker rmi -f harmish/gazebo:ros-pr2 || true
 
 
-clean: clean-julia clean-latex clean-morse clean-robotpkg clean-ros clean-spencer
+clean: clean-julia clean-latex clean-morse clean-robotpkg clean-ros clean-typescript clean-spencer
