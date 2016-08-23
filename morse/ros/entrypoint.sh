@@ -4,7 +4,7 @@
 set -e
 
 # setup ros
-source /opt/ros/$ROS_DISTRO/setup.bash ""
+source "/opt/ros/$ROS_DISTRO/setup.bash"
 
 # execute given command
 if [[ "$HEADLESS" == true ]]
