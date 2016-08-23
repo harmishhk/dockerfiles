@@ -4,7 +4,9 @@
 
 # Supported tags and respective `Dockerfile` links
 
-- [`julia`, `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/julia/julia/Dockerfile)
+- [`dev`, `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/julia/dev/Dockerfile)
+- [`image-video` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/julia/image-video/Dockerfile)
+- [`scipy` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/julia/scipy/Dockerfile)
 
 # Usage
 
@@ -14,7 +16,7 @@ docker run --rm -it                                 `# remove container after us
     -v $HOME/.julia:/root/.julia                    `# share julia packages` \
     -v $(pwd):$(pwd)                                `# mount current directory` \
     -w $(pwd)                                       `# start workspaces at current directory` \
-    harmish/julia:latest julia $@                   `# execute julia with given arguments`
+    harmish/julia:dev julia $@                      `# execute julia with given arguments`
 ```
 
 ## Linked repositories
