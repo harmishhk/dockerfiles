@@ -3,10 +3,11 @@ FROM harmish/ros:indigo-devel
     # install current packages
 RUN apt-get update && \
     apt-get install -y \
-        ros-indigo-control-toolbox \
-        ros-indigo-interactive-markers \
+        ros-$ROS_DISTRO-control-toolbox \
+        ros-$ROS_DISTRO-interactive-markers \
         # ros-indigo-libg2o \
-        ros-indigo-rviz && \
+        ros-$ROS_DISTRO-rviz \
+        ros-$ROS_DISTRO-pr2-description && \
 
     apt-get install -y wget libopenblas-dev liblapack-dev && \
     wget -O /tmp/SuiteSparse-4.5.3.tar.gz http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz && \
