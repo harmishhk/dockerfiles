@@ -1,6 +1,6 @@
 # LaTeX
 
-[`ubuntu:14.04`](https://hub.docker.com/_/ubuntu/) plus [TeX Live](https://www.tug.org/texlive/) 2015
+[`ubuntu:16.04`](https://hub.docker.com/_/ubuntu/) plus [TeX Live](https://www.tug.org/texlive/) 2015
 
 #  Supported tags and respective `Dockerfile` links
 
