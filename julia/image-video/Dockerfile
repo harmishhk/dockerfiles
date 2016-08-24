@@ -8,8 +8,9 @@ RUN apt-get update && \
     julia -e 'Pkg.update()' && \
     julia -e 'Pkg.add("Images")' && \
     julia -e 'using Images' && \
-    julia -e 'Pkg.add("VideoIO")' && \
-    julia -e 'using VideoIO' && \
+    # VideoIO is not supported on debian:jessie because of libavutil54
+    # julia -e 'Pkg.add("VideoIO")' && \
+    # julia -e 'using VideoIO' && \
 
     # fix for permission-issue on compiled cache when running as non-root user
     #chmod -R a+rwx /usr/local/julia/share/julia/site/lib && \
