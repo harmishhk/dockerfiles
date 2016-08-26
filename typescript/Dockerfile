@@ -1,7 +1,7 @@
 FROM node
 
     # install typescript
-RUN npm install -g tsd tslint typescript && \
+RUN npm install -g tslint typescript typings && \
     mkdir -p /workspace/build && \
 
     # clean-up
