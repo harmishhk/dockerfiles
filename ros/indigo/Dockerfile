@@ -7,7 +7,9 @@ RUN apt-get update && \
         ros-$ROS_DISTRO-interactive-markers \
         # ros-indigo-libg2o \
         ros-$ROS_DISTRO-rviz \
-        ros-$ROS_DISTRO-pr2-description && \
+        ros-$ROS_DISTRO-pr2-description \
+        ros-$ROS_DISTRO-rosbridge-suite \
+        ros-$ROS_DISTRO-tf2-web-republisher && \
 
     apt-get install -y wget libopenblas-dev liblapack-dev && \
     wget -O /tmp/SuiteSparse-4.5.3.tar.gz http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz && \
