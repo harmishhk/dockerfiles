@@ -13,7 +13,7 @@ docker run --rm -it                 `# remove container after use` \
     -v $HOME/.ghci:/root/.ghci      `# share cabal directory` \
     -v $(pwd):$(pwd)                `# mount current directory` \
     -w $(pwd)                       `# start workspaces at current directory` \
-    harmish/haskell:diagrams        `# execute julia with given arguments`
+    harmish/haskell:diagrams        `# start ghci`
 ```
 
 ## Linked repositories
