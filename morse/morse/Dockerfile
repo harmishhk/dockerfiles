@@ -22,7 +22,7 @@ RUN apt-get update && \
     bash /tmp/miniconda.sh -b -p /miniconda && \
 
     # install morse from source
-    git clone https://github.com/morse-simulator/morse -b $morseb /tmp/morse && \
+    git clone https://github.com/harmishhk/morse -b $morseb /tmp/morse && \
     mkdir /tmp/morse/build /morse && \
     cd /tmp/morse/build && cmake .. -DPYTHON_EXECUTABLE=/miniconda/bin/python -DBUILD_ROS_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=/morse && make install && \
     ln -s /morse/lib/python3.5/site-packages/pymorse /miniconda/lib/python3.5/site-packages/pymorse && \
