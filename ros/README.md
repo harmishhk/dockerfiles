@@ -8,7 +8,7 @@
 - [`indigo-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-navigation/Dockerfile)
 - [`indigo-pr2` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-pr2/Dockerfile)
 - [`indigo-rosbridge` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/indigo-rosbridge/Dockerfile)
-- [`jade-devel (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-devel/Dockerfile)
+- [`jade-devel` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-devel/Dockerfile)
 - [`jade-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/jade-navigation/Dockerfile)
 - [`kinetic-devel , `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-devel/Dockerfile)
 - [`kinetic-navigation` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/ros/kinetic-navigation/Dockerfile)

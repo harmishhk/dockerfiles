@@ -1,5 +1,7 @@
 FROM harmish/morse:ros
 
+ARG morserosb=1.4_STABLE
+
 RUN apt-get update && \
     # install pr2 and naviagation packages
     apt-get install -y \
@@ -18,7 +20,7 @@ RUN apt-get update && \
     bash -c "source /opt/ros/indigo/setup.bash && catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/indigo -C /pr2_ws install" && \
 
     # install morse-ros packages
-    git clone https://github.com/harmishhk/morse_ros.git -b $MORSE_VERSION /catkin_ws/src/morse_ros && \
+    git clone https://github.com/harmishhk/morse_ros.git -b $morserosb /catkin_ws/src/morse_ros && \
     bash -c "source /opt/ros/indigo/setup.bash && catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/indigo -C /catkin_ws install" && \
 
     # clean-up

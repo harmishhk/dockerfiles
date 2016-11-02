@@ -1,7 +1,6 @@
 FROM ros:indigo-ros-core
 
 ARG morseb=1.4_STABLE
-ENV MORSE_VERSION $morseb
 
 RUN apt-get update && \
     # install dependencies
@@ -18,7 +17,7 @@ RUN apt-get update && \
     pip3 install rospkg catkin-tools && \
 
     # install morse from source
-    git clone https://github.com/morse-simulator/morse -b $MORSE_VERSION /tmp/morse && \
+    git clone https://github.com/harmishhk/morse -b $morseb /tmp/morse && \
     mkdir /tmp/morse/build /morse && \
     cd /tmp/morse/build && cmake .. -DCMAKE_INSTALL_PREFIX=/morse && make install && \
 
