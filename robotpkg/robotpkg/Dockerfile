@@ -23,3 +23,8 @@ ENV ROBOTPKG_BASE /openrobots/install
 ENV PKG_CONFIG_PATH $PKG_CONFIG_PATH:/openrobots/install/lib/pkgconfig
 ENV PATH $PATH:/openrobots/install/bin:/openrobots/install/sbin
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/openrobots/install/lib
+
+# set up entrypoint
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["bash", "/entrypoint.sh"]
+CMD ["bash"]
