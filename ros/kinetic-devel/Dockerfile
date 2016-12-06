@@ -17,6 +17,7 @@ RUN apt-get update && \
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+ENV CMAKE_INCLUDE_PATH /opt/local/catch/include:$CMAKE_INCLUDE_PATH
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["bash", "/entrypoint.sh"]
 CMD ["bash"]
