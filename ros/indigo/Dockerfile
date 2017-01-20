@@ -8,6 +8,8 @@ RUN apt-get update && \
         # ros-indigo-libg2o \
         ros-$ROS_DISTRO-rviz \
         ros-$ROS_DISTRO-pr2-description \
+        ros-$ROS_DISTRO-teleop-twist-keyboard \
+        ros-$ROS_DISTRO-teleop-twist-joy \
         ros-$ROS_DISTRO-rosbridge-suite \
         ros-$ROS_DISTRO-tf2-web-republisher && \
 
