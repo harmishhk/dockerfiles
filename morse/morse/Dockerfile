@@ -25,7 +25,7 @@ RUN apt-get update && \
     git clone https://github.com/harmishhk/morse -b $morseb /tmp/morse && \
     mkdir /tmp/morse/build /morse && \
     cd /tmp/morse/build && cmake .. -DPYTHON_EXECUTABLE=/miniconda/bin/python -DBUILD_ROS_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=/morse && make install && \
-    ln -s /morse/lib/python3.5/site-packages/pymorse /miniconda/lib/python3.5/site-packages/pymorse && \
+    ln -s /morse/lib/python*/site-packages/pymorse $(python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")/pymorse && \
 
     # install morseweb
     git clone https://github.com/yarox/morseweb /morseweb && \
