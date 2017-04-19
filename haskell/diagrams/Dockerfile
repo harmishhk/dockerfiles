@@ -1,8 +1,10 @@
-FROM haskell
+FROM harmish/haskell:haskelly
 
-# install diagrams packages and their dependencies
-RUN cabal update && \
-    cabal install diagrams diagrams-pgf hlint SVGFonts && \
+    # fix for texrunner version
+RUN sed -i 's/.*extra-deps.*/extra-deps: [ texrunner-0.0.1.1 ]/' /root/.stack/global-project/stack.yaml && \
+
+    # install diagrams packages and their dependencies
+    stack install diagrams diagrams-pgf SVGFonts && \
     apt-get update && \
     apt-get install -y inkscape && \
 
