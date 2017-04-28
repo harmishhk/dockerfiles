@@ -2,7 +2,7 @@ FROM ubuntu
 
     # install texlive
 RUN apt-get update && \
-    apt-get install -y texlive-full wget && \
+    apt-get install -y biber texlive-full wget && \
 
     # fix for titlesec package
     wget http://mirrors.ctan.org/macros/latex/contrib/titlesec/titlesec.sty -O /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty && \
