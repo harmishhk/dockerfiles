@@ -1,4 +1,4 @@
-FROM harmish/haskell:haskelly
+FROM harmish/haskell:tools
 
     # fix for texrunner version
 RUN sed -i 's/.*extra-deps.*/extra-deps: [ texrunner-0.0.1.1 ]/' /root/.stack/global-project/stack.yaml && \

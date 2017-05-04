@@ -4,7 +4,7 @@
 
 # Supported tags and respective `Dockerfile` links
 
-- [`haskelly`, (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/haskell/haskelly/Dockerfile)
+- [`tools`, (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/haskell/tools/Dockerfile)
 - [`diagrams`, `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/haskell/diagrams/Dockerfile)
 
 # Usage
