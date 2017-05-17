@@ -6,6 +6,8 @@ RUN apt-get update && \
         ros-$ROS_DISTRO-control-toolbox \
         ros-$ROS_DISTRO-interactive-markers \
         # ros-indigo-libg2o \
+        ros-$ROS_DISTRO-rqt \
+        ros-$ROS_DISTRO-rqt-common-plugins \
         ros-$ROS_DISTRO-rviz \
         ros-$ROS_DISTRO-pr2-description \
         ros-$ROS_DISTRO-teleop-twist-keyboard \
