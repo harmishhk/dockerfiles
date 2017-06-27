@@ -1,4 +1,4 @@
-FROM node
+FROM harmish/node
 
     # install typescript
 RUN npm install -g tslint typescript typings && \
