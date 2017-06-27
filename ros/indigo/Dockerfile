@@ -5,6 +5,7 @@ RUN apt-get update && \
     apt-get install -y \
         ros-$ROS_DISTRO-control-toolbox \
         ros-$ROS_DISTRO-interactive-markers \
+        ros-$ROS_DISTRO-laser-filters \
         # ros-indigo-libg2o \
         ros-$ROS_DISTRO-rqt \
         ros-$ROS_DISTRO-rqt-common-plugins \
