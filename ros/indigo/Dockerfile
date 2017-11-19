@@ -16,9 +16,14 @@ RUN apt-get update && \
         ros-$ROS_DISTRO-rosbridge-suite \
         ros-$ROS_DISTRO-tf2-web-republisher && \
 
+    apt-get install -y software-properties-common && \
+    sudo add-apt-repository ppa:george-edison55/cmake-3.x && \
+    apt-get update && \
+    apt-get upgrade && \
+
     apt-get install -y wget libopenblas-dev liblapack-dev && \
-    wget -O /tmp/SuiteSparse-4.5.3.tar.gz http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz && \
-    tar -C /tmp -xzvf /tmp/SuiteSparse-4.5.3.tar.gz && \
+    wget -O /tmp/SuiteSparse-4.5.5.tar.gz http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.5.tar.gz && \
+    tar -C /tmp -xzvf /tmp/SuiteSparse-4.5.5.tar.gz && \
     sh -c "cd /tmp/SuiteSparse/metis-5.1.0 && make config prefix=/usr/local && make install" && \
     sh -c "cd /tmp/SuiteSparse && make install INSTALL_LIB=/usr/local/lib INSTALL_INCLUDE=/usr/local/include" && \
 
