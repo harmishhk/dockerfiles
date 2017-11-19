@@ -1,4 +1,4 @@
-FROM harmish/ros:indigo-devel
+FROM harmish/ros:indigo
 
 # install extra packages required by mummer
 RUN apt-get update && \
@@ -6,6 +6,7 @@ RUN apt-get update && \
     libnlopt-dev \
     ros-indigo-naoqi-bridge \
     ros-indigo-nao-interaction \
+    ros-indigo-octomap-msgs \
     ros-indigo-ros-control \
     ros-indigo-tf2\* && \
 
