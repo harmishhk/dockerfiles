@@ -1,9 +1,10 @@
 # haskell
 
-[`haskell`](https://hub.docker.com/_/haskell/) plus some useful [haskell](https://www.haskell.org/) packages
+[`haskell`](https://www.haskell.org/) [`stack`](https://docs.haskellstack.org/en/stable/README/) plus some useful haskell-packages
 
 # Supported tags and respective `Dockerfile` links
 
+- [`stack`, (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/haskell/stack/Dockerfile)
 - [`tools`, (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/haskell/tools/Dockerfile)
 - [`diagrams`, `latest` (*Dockerfile*)](https://github.com/harmishhk/dockerfiles/blob/master/haskell/diagrams/Dockerfile)
 
@@ -18,4 +19,4 @@ docker run --rm -it                 `# remove container after use` \
 
 ## Linked repositories
 
-- [`haskell`](https://hub.docker.com/_/haskell/)
+- [`ubuntu`](https://hub.docker.com/_/ubuntu/)
