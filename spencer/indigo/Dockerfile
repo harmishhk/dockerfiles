@@ -16,6 +16,6 @@ RUN apt-get update && \
     ros-indigo-sound-play \
     ros-indigo-joy \
     ros-indigo-yocs-cmd-vel-mux && \
-
+    #
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

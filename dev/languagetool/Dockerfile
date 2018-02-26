@@ -4,7 +4,7 @@ RUN apk -U add curl unzip && \
     curl -o /tmp/LanguageTool.zip https://languagetool.org/download/LanguageTool-stable.zip && \
     unzip -d / /tmp/LanguageTool.zip && \
     for i in /LanguageTool-*; do mv -- "$i" "/LanguageTool"; done && \
-
+    #
     # clean -up
     rm -rf /tmp/*
 
