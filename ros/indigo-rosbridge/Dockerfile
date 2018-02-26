@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y \
         ros-indigo-rosbridge-suite \
         ros-indigo-tf2-web-republisher && \
-
+    #
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
