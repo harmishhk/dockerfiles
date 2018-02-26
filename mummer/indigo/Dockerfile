@@ -9,6 +9,6 @@ RUN apt-get update && \
     ros-indigo-octomap-msgs \
     ros-indigo-ros-control \
     ros-indigo-tf2\* && \
-
+    #
     # clean-up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
