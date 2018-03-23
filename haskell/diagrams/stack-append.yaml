@@ -1,0 +1,17 @@
+extra-deps:
+- base-4.9.1.0
+- cubicbezier-0.6.0.5
+- diagrams-contrib-1.4.2.1
+- diagrams-core-1.4.0.1
+- diagrams-lib-1.4.2
+- diagrams-solve-0.1.1
+- diagrams-svg-1.4.1.1
+- dual-tree-0.2.1
+- fast-math-1.0.2
+- free-4.12.4
+- lens-4.15.4
+- mfsolve-0.3.2.0
+- optparse-applicative-0.13.2.0
+- process-1.4.3.0
+- texrunner-0.0.1.1
+- time-1.6.0.1
