@@ -1,11 +1,9 @@
-FROM ubuntu:16.04
+# syntax=docker/dockerfile:1
+FROM ubuntu:22.04
 
     # install texlive
-RUN apt-get update && \
-    apt-get install -y biber inkscape texlive-full wget && \
-    #
-    # fix for titlesec package
-    wget http://mirrors.ctan.org/macros/latex/contrib/titlesec/titlesec.sty -O /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty && \
+RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y biber inkscape texlive-full wget && \
     #
     # clean -up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
