@@ -1,6 +1,6 @@
 # LaTeX
 
-[`ubuntu:22.04`](https://hub.docker.com/_/ubuntu/) plus [TeX Live](https://www.tug.org/texlive/) 2022
+[`ubuntu:24.04`](https://hub.docker.com/_/ubuntu/) plus [TeX Live](https://www.tug.org/texlive/) 2023
 
 #  Supported tags and respective `Dockerfile` links
 
